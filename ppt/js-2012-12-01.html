@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Your deck.js Presentation</title>
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="deck.js/core/deck.core.css">
+	
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+	<!--<link rel="stylesheet" href="deck.js/extensions/scale/deck.scale.css">-->
+
+    <!--pointer-->
+    <link rel="stylesheet" href="deck.js/extensions/pointer.js/deck.pointer.css">
+
+
+    <!-- include code mirror default css and the theme you want. -->
+    <link rel="stylesheet" href="deck.js/extensions/codemirror/deck.codemirror.css">
+    <link rel="stylesheet" href="deck.js/extensions/codemirror/themes/default.css">
+    <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/cobalt.css">-->
+    <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/elegant.css">-->
+    <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/neat.css">-->
+    <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/night.css">-->
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<!--<link rel="stylesheet" href="deck.js/themes/style/web-2.0.css">-->
+	<link rel="stylesheet" href="deck.js/themes/style/neon.css">
+
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<!--<link rel="stylesheet" href="deck.js/themes/transition/cube.css">-->
+	<!--<link rel="stylesheet" href="deck.js/themes/transition/fade.css">-->
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
+
+  <!--sample-->
+  <style type="text/css">
+  .deck-container section.slide-scale{ font-size: 1.75em; }
+
+  .csstransforms.csstransitions .opacity-trasition.deck-next, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) {
+    left: 0;
+    top: 0;
+  }
+  .csstransforms.csstransitions .opacity-trasition.deck-next h2, .csstransforms.csstransitions .opacity-trasition.deck-next pre, .csstransforms.csstransitions .opacity-trasition.deck-next .sample-content, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) h2, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) pre, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) .sample-content {
+    -webkit-transform: translate3d(0, -300%, 0);
+    -moz-transform: translate(0, -300%);
+    -ms-transform: translate(0, -300%);
+    -o-transform: translate(0, -300%);
+    transform: translate3d(0, -300%, 0);
+  }
+  .csstransforms.csstransitions .opacity-trasition h2, .csstransforms.csstransitions .opacity-trasition .sample-content {
+    -webkit-transition: -webkit-transform 300ms ease-in-out 200ms;
+    -moz-transition: -moz-transform 300ms ease-in-out 200ms;
+    -ms-transition: -ms-transform 300ms ease-in-out 200ms;
+    -o-transition: -o-transform 300ms ease-in-out 200ms;
+    transition: transform 300ms ease-in-out 200ms;
+  }
+  .csstransforms.csstransitions .opacity-trasition pre {
+    -webkit-transition: -webkit-transform 300ms ease-in-out;
+    -moz-transition: -moz-transform 300ms ease-in-out;
+    -ms-transition: -ms-transform 300ms ease-in-out;
+    -o-transition: -o-transform 300ms ease-in-out;
+    transition: transform 300ms ease-in-out;
+  }
+  .csstransforms.csstransitions .opacity-trasition .slide {
+    visibility: visible;
+    opacity: 0;
+    -webkit-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+    -moz-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+    -ms-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+    -o-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+    transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+  }
+  .csstransforms.csstransitions .opacity-trasition .deck-current, .csstransforms.csstransitions .opacity-trasition .deck-before, .csstransforms.csstransitions .opacity-trasition .deck-previous {
+    opacity: 1;
+  }
+
+
+  </style>
+
+	<!-- Required Modernizr file -->
+	<script src="deck.js/modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide slide-scale" id="title">
+	<h1>javascript , you need to know!--part one</h1>
+</section>
+
+
+<section class="slide slide-scale" id="menu">
+    <h2>content</h2>
+
+    <ul>
+        <li>Object</li>
+        <li></li>
+        <li></li>
+    </ul>
+</section>
+
+<!--object-->
+<section class="slide">
+  <h2>Object对象</h2>
+    <h3>Everything in JavaScript acts like an
+        <strong>object</strong>, with the only two exceptions being
+        <strong>null</strong> and <strong>undefined</strong>。</h3>
+    <div class="slide">
+        <h3>javascript的所有类型包含：</h3>
+        <ul class="">
+            <li>基本类型：数字、字符串、布尔值，null、undefined</li>
+            <li>复合类型：对象（无序）、数组（有序）</li>
+            <li>特殊类型：函数</li>
+        </ul>
+    </div>
+    <div class="slide">
+        <div class="code-wrap">
+            <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">// boolean
+console.log(false.toString());
+
+// Array
+console.log([1, 2, 3].toString());
+
+// function
+function Foo(){}
+Foo.bar = 1;
+console.log( Foo.bar );
+            </textarea>
+        </div>
+        <div class="slide">
+            <div class="code-wrap">
+                <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">// 数字
+console.log(2.toString());
+                </textarea>
+            </div>
+        </div>
+   </div>
+</section>
+
+<!--delete 操作-->
+<section class="slide" >
+    <h2>Ｄelete操作符</h2>
+
+    <div class="slide">
+      <p>可以用于删除对象的属性</p>
+      <p>作用：防止内存泄露，特别在ie下。</p>
+    </div>
+
+    <div class="slide">
+        <div class="code-wrap">
+            <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var obj = {
+  one: 1,
+  two: 2,
+  three: 3
+};
+obj.one = undefined;
+obj.two = null;
+delete obj.three;
+
+for(var i in obj) {
+  console.log(i, '' + obj[i]);
+}
+            </textarea>
+        </div>
+    </div>
+</section>
+
+<!--prototype 原型-->
+<section class="slide opacity-trasition">
+	<h2>原型Prototype</h2>
+
+  <div >
+    <ul >
+      <li class="slide"><span>JavaScript 不包含传统的类继承模型，而是使用 prototypical 原型模型。</span> <span class="slide">或者说<a href="#prototypeChain">原型链</a>的方式继承</span>
+        <p id="prototypeChain" class="slide code-wrap">
+          <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">function SuperType(){
+            this.property = true;
+            }
+
+            SuperType.prototype.getSuperValue =  function(){
+            return this.property;
+            };
+
+            function SubType(){
+            this.subProperty = false;
+            }
+
+            SubType.prototype = SuperType.prototype;
+            SubType.prototype.getSubValue = function(){
+            return this.subProperty;
+            };
+
+            // demo
+            var subRef = new SubType();
+            console.log(subRef.getSuperValue);  //subRef得到了superType的方法‘getSuperValue’
+
+            // 缺点：
+            var superRef = new SuperType();
+            console.log(superRef.getSubValue); //存在污染父类型的缺点
+          </textarea>
+        </p>
+        <div class="slide img-text">
+          <p class="txt">从图中我们可以看出：
+            <span>继承关系、</span>
+            <span>属性访问、</span>
+            <span>性能问题</span>
+          </p>
+          <img class="img" src="img/prototype.jpg" alt="prototype extend relation" />
+        </div>
+      </li>
+      <li class="slide">优点
+        <ul>
+          <li>所有的实例都共享prototype对象</li>
+          <li class="slide">可以在运行时期动态增加属性</li>
+        </ul>
+      </li>
+      <li class="slide">实现继承
+        <p class="code-wrap">
+          <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">function SuperType(){
+            this.property = true;
+            }
+            SuperType.prototype.getSuperValue =  function(){
+            return this.property;
+            };
+
+            function SubType(){
+            this.subProperty = false;
+            }
+            SubType.prototype.getSubValue = function(){
+            return this.subProperty;
+            };
+
+            // 使用空函数实现SubType继承SuperType
+            var f = function() {};
+            f.prototype = SuperType.prototype;
+            SubType.prototype = new f();
+            SubType.prototype.constructor = SubType;
+            SubType.super = SuperType.prototype;
+
+            // demo
+            var superRef = new SuperType();
+            var subRef = new SubType();
+            console.log(subRef.getSuperValue);  //subRef得到了superType的方法‘getSuperValue’
+            console.log(SubType.prototype == SuperType.prototype);
+            console.log(superRef.getSubValue);
+          </textarea>
+        </p>
+
+        <div class="slide">
+        <h3>YUI的extend函数实现：</h3>
+        <p class="code-wrap">
+          <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var extend = function(subclass, superclass) {
+var f = function() {};
+//f拥有superclass的所有对象属性
+f.prototype = superclass.prototype;
+//subclass为f的一个实例对象，且拥有superclass的所有属性
+subclass.prototype = new f();
+//给subclass定义一个constructor 的属性
+subclass.prototype.constructor = subclass;
+//给subclass定义一个superclass 的属性
+subclass.superclass = superclass.prototype;
+//如果父类superclass.prototype.constructor没有被自定义，则自定义
+if (superclass.prototype.constructor == Object.prototype.constructor) {
+superclass.prototype.constructor = superclass;
+}
+};
+          </textarea>
+        </p>
+        <script type="codemirror" data-selector=".extendDemoCode">
+          var extend = function(subclass, superclass) {
+          var f = function() {};
+          //f拥有superclass的所有对象属性
+          f.prototype = superclass.prototype;
+          //subclass为f的一个实例对象，且拥有superclass的所有属性
+          subclass.prototype = new f();
+          //给subclass定义一个constructor 的属性
+          subclass.prototype.constructor = subclass;
+          //给subclass定义一个superclass 的属性
+          subclass.superclass = superclass.prototype;
+          //如果父类superclass.prototype.constructor没有被自定义，则自定义
+          if (superclass.prototype.constructor == Object.prototype.constructor) {
+          superclass.prototype.constructor = superclass;
+          }
+          };
+        </script>
+        </div>
+      </li>
+      <li class="slide">
+        <h3>The <strong>for in</strong> loop and <strong>hasOwnProperty</strong> method</h3>
+        <p class="code-wrap">
+          <textarea name="code" id="extendDemoCode" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
+            var A = function(){};
+            A.prototype.propertyA = 'propertyA';
+
+            var B = function(){};
+            extend(B, A);
+            B.prototype.propertyB = 'propertyB';
+
+            var C = function(){};
+            extend(C, B);
+
+            // demo
+            var c = new C();
+            c.propertyC = 'propertyC';
+            for(var p in c){
+            console.log(p, '' + c[p]);
+            }
+
+            console.log('\n\n');
+            for(var p in c){
+            if(c.hasOwnProperty(p)){
+            console.log(p, '' + c[p]);
+            }
+            }
+          </textarea>
+        </p>
+      </li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    var A = function(){};
+    A.prototype.propertyA = 'propertyA';
+
+    var B = function(){};
+    extend(B, A);
+    B.prototype.propertyB = 'propertyB';
+
+    var C = function(){};
+    extend(C, B);
+
+    // demo
+    var c = new C();
+    c.propertyC = 'propertyC';
+    for(var p in c){
+      console.log(p, '' + c[p]);
+    }
+
+    console.log('\n\n');
+    for(var p in c){
+      if(c.hasOwnProperty(p)){
+        console.log(p, '' + c[p]);
+      }
+    }
+  </script>
+
+</section>
+
+<!--function 函数-->
+<section class="slide">
+  <h2>function 函数</h2>
+  <div class="slide">
+    <p>有以下三种定义方式：</p>
+    <p class="code-wrap">
+    <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="">function aaa() {};　// 方式1: 定义变量
+      var bbb = function();     //方式2: 先声明变量，后赋值
+      var ccc = new Function(); //方式3: 不提倡，1) 使用字符串函数体，不直观;　2)性能差;
+    </textarea>
+    </p>
+  </div>
+  <div class="slide">
+    <h3>那么，方式一和方式二有什么不同呢？</h3>
+    <div class="slide">
+    <p class="code-wrap">
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">//方式1:
+        console.log(aaa); // 'function'，因为foo在代码运行前已经被创建
+        function aaa() {}
+
+        // 方式2:
+        console.log(bbb); // 'undefined'
+        var bbb = function() {};
+      </textarea>
+    </p>
+    </div>
+    <p class="slide">所以我们要：变量被初始化之后使用变量</p>
+    <h3 class="slide">那么，我们会想: 'js引擎的对函数的解析过程'是怎么样的呢？</h3>
+  </div>
+  <div class="slide">
+    js作为一个解析型的语言来说：语法检查　->  运行期第一步“预解析” -> 运行期第二步“边解释边执行”执行期。而整个过程如下：
+    <ol class="slide">
+      <li>读入第一个代码段（js执行引擎并非一行一行地执行程序，而是一段一段地分析执行的）</li>
+      <li>做词法分析和语法分析，有错则报语法错误（比如括号不匹配等），并跳转到步骤5</li>
+      <li>对【var】变量和【function】定义做“预解析“（永远不会报错的，因为只解析正确的声明）</li>
+      <li>执行代码段，有错则报错（比如变量未定义）</li>
+      <li>如果还有下一个代码段，则读入下一个代码段，重复步骤2 </li>
+      <li>结束</li>
+    </ol>
+  </div>
+</section>
+
+<!--this工作原理-->
+<section class="slide">
+  <h2>
+    this工作原理
+  </h2>
+  <div class="slide">
+    <h3>我们先看看哪些地方会用到'this'关键词：</h3>
+    <ul>
+      <li class="slide">全局范围（this引用的是window对象）</li>
+      <li class="slide">function内部, 如：fun(){}</li>
+      <li class="slide">对象调用自己的方法（object.methodName()）</li>
+      <li class="slide">实例化函数（new Fun()）</li>
+      <li class="slide">显性的指定this（call/apply）</li>
+    </ul>
+    <div class="slide">
+      <p class="code-wrap">
+        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">this.setTimeout(); // this引用的是window对象
+          // function内部: this引用的是window对象
+          function fun(){
+            this.company = 'snda';
+          }
+          fun();
+
+          // 对象调用自己的方法
+          var obj = {};
+          obj.fun = fun;
+          obj.fun(); // 此时，this引用的是obj对象
+
+          // 实例化函数　
+          var ref = new fun(); // 此时，this引用的是ref对象
+
+          // call/apply: 显性的指定this
+          var other = {company:'sysdev'};
+          fun.call(other, 1,2,3); // 此时，this引用的是other对象
+          fun.apply(other, [1,2,3]); // 此时，this引用的是other对象
+        </textarea>
+      </p>
+    </div>
+  </div>
+</section>
+<section class="slide">
+  <h3>
+    'this'关键词demos
+  </h3>
+  <div class="slide">
+    <p class="code-wrap">
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var aaa = {};
+        aaa.method = function() {
+        var test = function () {
+          this.company = "snda";
+        }
+        test();
+        }
+
+        aaa.method();
+        console.log(aaa.company);
+      </textarea>
+    </p>
+  </div>
+  <div class="slide">
+    <p class="code-wrap">
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var aaa = {};
+        aaa.company = "snda";
+        aaa.method = function() {
+          console.log('this.company: ', this.company);
+        }
+
+        var test = aaa.method;
+        test();
+      </textarea>
+    </p>
+  </div>
+  <div class="slide">
+    <p class="code-wrap">
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">function AAA() {
+          this.company = 'aaa';
+        }
+        AAA.prototype.method = function() {
+          console.log('this.company: ', this.company);
+        };
+
+        function BBB() {
+          this.company = 'bbb';
+        }
+        BBB.prototype = AAA.prototype;
+
+        new BBB().method();
+      </textarea>
+    </p>
+  </div>
+</section>
+
+<!--closures 闭包-->
+<section class="slide">
+  <h2>closures 闭包</h2>
+  <h3 class="slide">什么是闭包？</h3>
+  <p class="slide">有人说闭包就是一个函数！对嘛？ <span class="slide">函数是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数</span> </p>
+  <p class="slide">ECMAScript: A "closure" is an expression (typically a function) that can have free variables together with an environment that binds those variables </p>
+  <div class="slide">
+    <p><strong>总结一下：</strong></p>
+    <ul>
+      <li class="slide">是javascript里一个重要特性。</li>
+      <li class="slide">有了它，js就能从一个作用域(scope)访问到<strong>外围</strong>的作用域的变量。</li>
+      <li class="slide">而函数是 JavaScript 中唯一拥有自身作用域的结构的expression</li>
+    </ul>
+  </div>
+  <div class="slide">
+    <p class="code-wrap">
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">//方式1:
+        console.log(aaa); // 'function'，因为foo在代码运行前已经被创建
+        function aaa() {}
+
+        // 方式2:
+        console.log(bbb); // 'undefined'
+        var bbb = function() {};
+      </textarea>
+    </p>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>参考文章：</h2>
+  <ul>
+    <li><a href="http://bonsaiden.github.com/JavaScript-Garden/#function.this">JavaScript Garden</a></li>
+    <li><a href="http://www.html5jscss.com/js-data-scope-52.html" target="_blank">JavaScript欲速则不达—通过解析过程来了解作用域</a></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</section>
+
+
+<script type="text/javascript">
+
+</script>
+
+
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="deck.js/jquery-1.7.2.min.js"></script>
+<script src="deck.js/core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/menu/deck.menu.js"></script>
+<script src="deck.js/extensions/goto/deck.goto.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+<!--<script src="deck.js/extensions/scale/deck.scale.js"></script>-->
+
+<!--pointer-->
+<script src="deck.js/extensions/pointer.js/deck.pointer.js"></script>
+
+<!-- include the base codemirror code. -->
+<script src="deck.js/extensions/codemirror/codemirror.js"></script>
+
+<!-- include the code syntax you want to highlight -->
+<!-- javascript -->
+<script src="deck.js/extensions/codemirror/mode/javascript/javascript.js"></script>
+
+<!-- html mode : note code miror requires xml, css and javasript modes for html rendering -->
+<script src="deck.js/extensions/codemirror/mode/xml/xml.js"></script>
+<script src="deck.js/extensions/codemirror/mode/css/css.js"></script>
+<script src="deck.js/extensions/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!--blank-->
+<script src="deck.js/extensions/blank/deck.blank.js"></script>
+
+
+
+<script src="deck.js/extensions/codemirror/deck.codemirror.js"></script>
+
+
+<!-- Stuff specific to this page -->
+<script src="sample-2012-12-01.js"></script>
+
+</body>
+</html>
