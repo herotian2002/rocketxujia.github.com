@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Your deck.js Presentation</title>
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="deck.js/core/deck.core.css">
+	
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+	<!--<link rel="stylesheet" href="deck.js/extensions/scale/deck.scale.css">-->
+
+    <!--pointer-->
+    <link rel="stylesheet" href="deck.js/extensions/pointer.js/deck.pointer.css">
+
+
+    <!-- include code mirror default css and the theme you want. -->
+    <link rel="stylesheet" href="deck.js/extensions/codemirror/deck.codemirror.css">
+    <link rel="stylesheet" href="deck.js/extensions/codemirror/themes/default.css">
+    <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/cobalt.css">-->
+    <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/elegant.css">-->
+    <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/neat.css">-->
+    <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/night.css">-->
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<!--<link rel="stylesheet" href="deck.js/themes/style/web-2.0.css">-->
+	<link rel="stylesheet" href="deck.js/themes/style/neon.css">
+
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<!--<link rel="stylesheet" href="deck.js/themes/transition/cube.css">-->
+	<!--<link rel="stylesheet" href="deck.js/themes/transition/fade.css">-->
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
+
+  <!--sample-->
+  <style type="text/css">
+  .deck-container section.slide-scale{ font-size: 1.75em; }
+
+  .csstransforms.csstransitions .opacity-trasition.deck-next, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) {
+    left: 0;
+    top: 0;
+  }
+  .csstransforms.csstransitions .opacity-trasition.deck-next h2, .csstransforms.csstransitions .opacity-trasition.deck-next pre, .csstransforms.csstransitions .opacity-trasition.deck-next .sample-content, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) h2, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) pre, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) .sample-content {
+    -webkit-transform: translate3d(0, -300%, 0);
+    -moz-transform: translate(0, -300%);
+    -ms-transform: translate(0, -300%);
+    -o-transform: translate(0, -300%);
+    transform: translate3d(0, -300%, 0);
+  }
+  .csstransforms.csstransitions .opacity-trasition h2, .csstransforms.csstransitions .opacity-trasition .sample-content {
+    -webkit-transition: -webkit-transform 300ms ease-in-out 200ms;
+    -moz-transition: -moz-transform 300ms ease-in-out 200ms;
+    -ms-transition: -ms-transform 300ms ease-in-out 200ms;
+    -o-transition: -o-transform 300ms ease-in-out 200ms;
+    transition: transform 300ms ease-in-out 200ms;
+  }
+  .csstransforms.csstransitions .opacity-trasition pre {
+    -webkit-transition: -webkit-transform 300ms ease-in-out;
+    -moz-transition: -moz-transform 300ms ease-in-out;
+    -ms-transition: -ms-transform 300ms ease-in-out;
+    -o-transition: -o-transform 300ms ease-in-out;
+    transition: transform 300ms ease-in-out;
+  }
+  .csstransforms.csstransitions .opacity-trasition .slide {
+    visibility: visible;
+    opacity: 0;
+    -webkit-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+    -moz-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+    -ms-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+    -o-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+    transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+  }
+  .csstransforms.csstransitions .opacity-trasition .deck-current, .csstransforms.csstransitions .opacity-trasition .deck-before, .csstransforms.csstransitions .opacity-trasition .deck-previous {
+    opacity: 1;
+  }
+
+
+  </style>
+
+	<!-- Required Modernizr file -->
+	<script src="deck.js/modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide slide-scale" id="title">
+	<h1>javascript , you need to know!--part one</h1>
+</section>
+
+
+<section class="slide slide-scale" id="menu">
+    <h2>content</h2>
+
+    <ul>
+        <li>Object</li>
+        <li></li>
+        <li></li>
+    </ul>
+</section>
+
+
+
+<!--prototype 原型-->
+<style type="text/css">
+  #prototype_base{ height: 480px; }
+  #prototype_base .code-wrap{ float: left; margin-right: 500px; padding-right: 12px; }
+  #prototype_base .img-text{ width:480px; float: left; margin-left: -480px; margin-top: -32px; }
+</style>
+<section class="slide ">
+	<h2>原型Prototype</h2>
+  <p class="slide"><span>JavaScript 不包含传统的类继承模型，而是使用原型继承模型。</span></p>
+  <div id="prototype_base" class="slide">
+    <div id="prototypeChain" class="slide">
+      <p class="code-wrap">
+        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">function Company(){
+          this.name = this.company;
+          }
+          Company.prototype = {
+          company: 'snda',
+          getCompany: function(){
+          return this.company;
+          }
+          };
+
+          function Department(){
+          this.name = this.department;
+          }
+          Department.prototype = new Company();  // 使用原型继承
+          Department.prototype.department = 'sysdev';
+          Department.prototype.getDepartment = function(){
+          return this.department;
+          };
+
+          // demo
+          var departmentInstance = new Department();
+          console.log('departmentRef\'s company: ', departmentInstance.getCompany());  // Department得到了Company的方法‘getCompany’
+
+          // 缺点：
+          var companyRef = new Company();
+          console.log(companyRef.getDepartment); //存在污染父类型的缺点
+        </textarea>
+      </p>
+    </div>
+    <div class="slide img-text">
+      <p class="txt">从图中我们可以看出：
+        <span>原型继承链、</span>
+        <span>属性访问</span>
+      </p>
+      <img class="img" src="img/prototype1.jpg" alt="prototype extend relation" />
+    </div>
+  </div>
+  <ul >
+    <li class="slide">所有的实例都共享prototype对象</li>
+    <li class="slide">可以在运行时期动态增加属性</li>
+  </ul>
+</section>
+<section class="slide">
+  <h3>YUI的extend函数实现：</h3>
+  <ul>
+    <li class="slide">
+      <p class="code-wrap">
+        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var extend = function(subclass, superclass) {
+          var f = function() {};
+          //f拥有superclass的所有对象属性
+          f.prototype = superclass.prototype;
+          //subclass为f的一个实例对象，且拥有superclass的所有属性
+          subclass.prototype = new f();
+          //给subclass定义一个constructor 的属性
+          subclass.prototype.constructor = subclass;
+          //给subclass定义一个superclass 的属性
+          subclass.superclass = superclass.prototype;
+          //如果父类superclass.prototype.constructor没有被自定义，则自定义
+          if (superclass.prototype.constructor == Object.prototype.constructor) {
+          superclass.prototype.constructor = superclass;
+          }
+          };
+        </textarea>
+      </p>
+    </li>
+    <li class="slide">
+      <h3>The <strong>for in</strong> loop and <strong>hasOwnProperty</strong> method</h3>
+      <p class="code-wrap">
+        <textarea name="code" id="extendDemoCode" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
+          var A = function(){};
+          A.prototype.propertyA = 'propertyA';
+
+          var B = function(){};
+          extend(B, A);
+          B.prototype.propertyB = 'propertyB';
+
+          var C = function(){};
+          extend(C, B);
+
+          // demo
+          var c = new C();
+          c.propertyC = 'propertyC';
+          for(var p in c){
+          console.log(p, '' + c[p]);
+          }
+
+          console.log('\n\n');
+          for(var p in c){
+          if(c.hasOwnProperty(p)){
+          console.log(p, '' + c[p]);
+          }
+          }
+        </textarea>
+      </p>
+    </li>
+  </ul>
+</section>
+
+
+
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="deck.js/jquery-1.7.2.min.js"></script>
+<script src="deck.js/core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/menu/deck.menu.js"></script>
+<script src="deck.js/extensions/goto/deck.goto.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+<!--<script src="deck.js/extensions/scale/deck.scale.js"></script>-->
+
+<!--pointer-->
+<script src="deck.js/extensions/pointer.js/deck.pointer.js"></script>
+
+<!-- include the base codemirror code. -->
+<script src="deck.js/extensions/codemirror/codemirror.js"></script>
+
+<!-- include the code syntax you want to highlight -->
+<!-- javascript -->
+<script src="deck.js/extensions/codemirror/mode/javascript/javascript.js"></script>
+
+<!-- html mode : note code miror requires xml, css and javasript modes for html rendering -->
+<script src="deck.js/extensions/codemirror/mode/xml/xml.js"></script>
+<script src="deck.js/extensions/codemirror/mode/css/css.js"></script>
+<script src="deck.js/extensions/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!--blank-->
+<script src="deck.js/extensions/blank/deck.blank.js"></script>
+
+
+
+<script src="deck.js/extensions/codemirror/deck.codemirror.js"></script>
+
+
+<!-- Stuff specific to this page -->
+<script src="sample-2012-12-01.js"></script>
+
+</body>
+</html>

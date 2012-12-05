@@ -42,6 +42,7 @@
   <!--sample-->
   <style type="text/css">
   .deck-container section.slide-scale{ font-size: 1.75em; }
+  .deck-container section.slide .m-v16{ margin: 16px 0; }
 
   .csstransforms.csstransitions .opacity-trasition.deck-next, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) {
     left: 0;
@@ -94,17 +95,64 @@
 <section class="slide slide-scale" id="title">
 	<h1>javascript , you need to know!--part one</h1>
 </section>
-
-
 <section class="slide slide-scale" id="menu">
     <h2>content</h2>
-
     <ul>
         <li>Object</li>
         <li></li>
         <li></li>
     </ul>
 </section>
+
+<!--operator-->
+<script type="text/javascript">
+
+</script>
+<section class="slide">
+  <h2>类型检测</h2>
+  <ul>
+    <li class="slide">
+      <h3>等于操作符：<strong>==</strong></h3>
+      <p class="slide">JavaScript 是弱类型语言，这就意味着，等于操作符会为了比较两个值而进行强制类型转换。</p>
+      <div class="code-wrap slide">
+        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">console.log( '"" ==  "0" is', "" == "0" ); // false
+          console.log( '0 ==  ""  is', 0 == "" ); // true
+          console.log( '0 ==  "0"  is', 0 == "0" ); // true
+          console.log( 'false == "0" is', false == "0" );  // true
+          console.log( 'false == "false" is', false == "false"); // false
+          console.log( 'false == undefined is', false == undefined);  // false
+          console.log( 'false == null is', false == null);   // false
+          console.log( 'true == 0 is', true == 0);   // false
+          console.log( 'true == 1 is', true == 1);   // true
+          console.log( 'true == 3 is', true == 3);   // false
+          console.log( 'null == undefined is', null == undefined); // true
+          console.log( '"\t\r\n" == 0  is', "\t\r\n" == 0); // true
+        </textarea>
+      </div>
+      <p class="slide m-v16">可以发现结果是，== 有复杂转换规则，完全不能预计类型强制转换后的结果。<br />
+        此外，强制类型转换也会带来性能消耗，比如一个字符串为了和一个数组进行比较，必须事先被强制转换为数字。</p>
+      <p class="slide">那么，我们来看下 </p>
+      <h3 class="slide">严格等于操作符<strong>===</strong></h3>
+      <div class="code-wrap slide">
+        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">console.log( '"" ==  "0" is', "" == "0" ); // false
+          console.log( '0 ===  ""  is', 0 === "" );  // false
+          console.log( '0 ===  "0"  is', 0 === "0" ); // false
+          console.log( 'false === "0" is', false === "0" );  // false
+          console.log( 'false === "false" is', false === "false"); // false
+          console.log( 'false === undefined is', false === undefined);  // false
+          console.log( 'false === null is', false === null);   // false
+          console.log( 'true === 0 is', true === 0);   // false
+          console.log( 'true === 1 is', true === 1);   // false
+          console.log( 'true === 3 is', true === 3);   // false
+          console.log( 'null === undefined is', null === undefined); // false
+          console.log( '"\t\r\n" === 0  is', "\t\r\n" === 0); // false
+        </textarea>
+      </div>
+      <p class="slide m-v16">上面的结果我们可以看出：两个操作数类型不同就肯定不严格相等。<br /> 结果更加清晰并有利于代码的分析, 而且有助于性能的提升。</p>
+    </li>
+  </ul>
+</section>
+<se
 
 <!--object-->
 <section class="slide">
@@ -147,7 +195,6 @@ console.log(2.toString());
 <!--delete 操作-->
 <section class="slide" >
     <h2>Ｄelete操作符</h2>
-
     <div class="slide">
       <p>可以用于删除对象的属性</p>
       <p>作用：防止内存泄露，特别在ie下。</p>
@@ -173,139 +220,132 @@ for(var i in obj) {
 </section>
 
 <!--prototype 原型-->
-<section class="slide opacity-trasition">
+<style type="text/css">
+  #prototype_base{ height: 460px; }
+  #prototype_base table{
+    width:100%;
+    table-layout: fixed;
+  }
+</style>
+<section class="slide ">
 	<h2>原型Prototype</h2>
-
-  <div >
-    <ul >
-      <li class="slide"><span>JavaScript 不包含传统的类继承模型，而是使用原型继承模型。</span></span>
-        <p id="prototypeChain" class="slide code-wrap">
-          <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">function SuperType(){
-            this.property = true;
+  <p class="slide"><span>JavaScript 不包含传统的类继承模型，而是使用原型继承模型。</span></p>
+  <table id="prototype_base" class="slide">
+    <tr>
+      <td>
+        <div id="prototypeChain" class="code-wrap">
+          <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">function Company(){
+            this.name = this.company;
             }
-
-            SuperType.prototype.getSuperValue =  function(){
-            return this.property;
+            Company.prototype = {
+            company: 'snda',
+            getCompany: function(){
+            return this.company;
+            }
             };
 
-            function SubType(){
-            this.subProperty = false;
+            function Department(){
+            this.name = this.department;
             }
-
-            SubType.prototype = SuperType.prototype;
-            SubType.prototype.getSubValue = function(){
-            return this.subProperty;
+            Department.prototype = new Company();  // 使用原型继承
+            Department.prototype.department = 'sysdev';
+            Department.prototype.getDepartment = function(){
+            return this.department;
             };
 
             // demo
-            var subRef = new SubType();
-            console.log(subRef.getSuperValue);  //subRef得到了superType的方法‘getSuperValue’
+            var departmentInstance = new Department();
+            console.log('departmentRef\'s company: ',
+              departmentInstance.getCompany());   // Department得到了Company的方法‘getCompany’
 
             // 缺点：
-            var superRef = new SuperType();
-            console.log(superRef.getSubValue); //存在污染父类型的缺点
+            var companyRef = new Company();
+            console.log(companyRef.getDepartment); //存在污染父类型的缺点
           </textarea>
-        </p>
+        </div>
+      </td>
+      <td style="width:480px; padding-left: 24px;">
         <div class="slide img-text">
           <p class="txt">从图中我们可以看出：
             <span>原型继承链、</span>
-            <span>属性访问</span>
+            <span>属性访问的遍历过程</span>
           </p>
-          <img class="img" src="img/prototype.jpg" alt="prototype extend relation" />
+          <img class="img" src="img/prototype1.jpg" alt="prototype extend relation" />
         </div>
-      </li>
-      <li class="slide">优点
-        <ul>
-          <li>所有的实例都共享prototype对象</li>
-          <li class="slide">可以在运行时期动态增加属性</li>
-        </ul>
-      </li>
-      <li class="slide">实现继承
-        <p class="code-wrap">
-          <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">function SuperType(){
-            this.property = true;
-            }
-            SuperType.prototype.getSuperValue =  function(){
-            return this.property;
-            };
+      </td>
+    </tr>
+  </table>
+</section>
+<section class="slide">
+  <h3 class="m-v16">通过刚才的Demo和图，我们可以看出原型继承的优点</h3>
+  <ul >
+    <li class="slide">所有的实例都共享prototype对象</li>
+    <li class="slide">可以在运行时期动态增加属性</li>
+  </ul>
+</section>
+<section class="slide">
+  <h3>YUI的extend函数实现：</h3>
+  <ul>
+    <li class="slide">
+      <p class="code-wrap">
+        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var extend = function(subclass, superclass) {
+          var f = function() {};
+          //f拥有superclass的所有对象属性
+          f.prototype = superclass.prototype;
+          //subclass为f的一个实例对象，且拥有superclass的所有属性
+          subclass.prototype = new f();
+          //给subclass定义一个constructor 的属性
+          subclass.prototype.constructor = subclass;
+          //给subclass定义一个superclass 的属性
+          subclass.superclass = superclass.prototype;
+          //如果父类superclass.prototype.constructor没有被自定义，则自定义
+          if (superclass.prototype.constructor == Object.prototype.constructor) {
+          superclass.prototype.constructor = superclass;
+          }
+          };
+        </textarea>
+      </p>
+    </li>
+    <li class="slide">
+      <h3>The <strong>For In</strong> loop and <strong>hasOwnProperty</strong> method</h3>
+      <ul>
+        <li><strong>For In循环</strong>循环：是指查找对象属性时遍历原型链上的所有属性，知道Object.prototype。</li>
+        <li><strong>hasOwnProperty方法:</strong>为了判断一个对象是否包含自定义属性而不是原型链上的属性</li>
+      </ul>
+      <p class="code-wrap">
+        <textarea name="code" id="extendDemoCode" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
+          var A = function(){};
+          A.prototype.propertyA = 'propertyA';
 
-            function SubType(){
-            this.subProperty = false;
-            }
-            SubType.prototype.getSubValue = function(){
-            return this.subProperty;
-            };
+          var B = function(){};
+          extend(B, A);
+          B.prototype.propertyB = 'propertyB';
 
-            // 使用空函数实现SubType继承SuperType
-            var f = function() {};
-            f.prototype = SuperType.prototype;
-            SubType.prototype = new f();
-            SubType.prototype.constructor = SubType;
-            SubType.super = SuperType.prototype;
+          var C = function(){};
+          extend(C, B);
 
-            // demo
-            var superRef = new SuperType();
-            var subRef = new SubType();
-            console.log(subRef.getSuperValue);  //subRef得到了superType的方法‘getSuperValue’
-            console.log(SubType.prototype == SuperType.prototype);
-            console.log(superRef.getSubValue);
-          </textarea>
-        </p>
+          // demo
+          var c = new C();
+          c.propertyC = 'propertyC';
+          for(var p in c){
+          console.log(p, '' + c[p]);
+          }
 
-        <div class="slide">
-        <h3>YUI的extend函数实现：</h3>
-        <p class="code-wrap">
-          <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var extend = function(subclass, superclass) {
-var f = function() {};
-//f拥有superclass的所有对象属性
-f.prototype = superclass.prototype;
-//subclass为f的一个实例对象，且拥有superclass的所有属性
-subclass.prototype = new f();
-//给subclass定义一个constructor 的属性
-subclass.prototype.constructor = subclass;
-//给subclass定义一个superclass 的属性
-subclass.superclass = superclass.prototype;
-//如果父类superclass.prototype.constructor没有被自定义，则自定义
-if (superclass.prototype.constructor == Object.prototype.constructor) {
-superclass.prototype.constructor = superclass;
-}
-};
-          </textarea>
-        </p>
-        </div>
-      </li>
-      <li class="slide">
-        <h3>The <strong>for in</strong> loop and <strong>hasOwnProperty</strong> method</h3>
-        <p class="code-wrap">
-          <textarea name="code" id="extendDemoCode" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
-            var A = function(){};
-            A.prototype.propertyA = 'propertyA';
-
-            var B = function(){};
-            extend(B, A);
-            B.prototype.propertyB = 'propertyB';
-
-            var C = function(){};
-            extend(C, B);
-
-            // demo
-            var c = new C();
-            c.propertyC = 'propertyC';
-            for(var p in c){
-            console.log(p, '' + c[p]);
-            }
-
-            console.log('\n\n');
-            for(var p in c){
-            if(c.hasOwnProperty(p)){
-            console.log(p, '' + c[p]);
-            }
-            }
-          </textarea>
-        </p>
-      </li>
-    </ul>
-  </div>
+          console.log('\n\n');
+          for(var p in c){
+          if(c.hasOwnProperty(p)){
+          console.log(p, '' + c[p]);
+          }
+          }
+        </textarea>
+      </p>
+    </li>
+  </ul>
+</section>
+<section class="slide">
+  <h3>注意</h3>
+  <p> <strong>hasOwnProperty</strong> 是JavaScript中唯一一个处理属性但是不需要查找原型链的方法。</p>
+  <p class="slide">经常会有通过判断一个属性是否 undefined 是不够的。</p>
 </section>
 
 <!--function 函数-->
@@ -584,7 +624,7 @@ superclass.prototype.constructor = superclass;
 </section>
 <section class="slide">
   <p class="code-wrap">
-    <textarea name="code" class="code closureDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">var globalArr = [];
+    <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="true">var globalArr = [];
       function test(){
       var arr = [], objs = [];
       for(var i = 0; i < 3; i++) {
@@ -654,30 +694,28 @@ superclass.prototype.constructor = superclass;
   foo.get(); // 5
 </script>
 <script type="text/javascript">
-  var arr = [], objs = [];
-  for(var i = 0; i < 3; i++) {
-    objs.push(i);
-    arr.push(function(){
-      console.log('i: ',i);
-    });
+  function Company(){
+    this.name = this.company;
+  }
+  Company.prototype = {
+    company: 'snda',
+    getCompany: function(){
+      return this.company;
+    }
   };
 
-  for(var fun in arr){
-    arr[fun]();
+  function Department(){
+    this.name = this.department;
   }
-
-  for(var i = 0; i < 3; i++) {
-    objs.push(i);
-    arr.push(function(){
-      console.log('i: ',i);
-    });
+  Department.prototype = new Company();  // 使用原型继承
+  Department.prototype.department = 'sysdev';
+  Department.prototype.getDepartment = function(){
+    return this.department;
   };
 
-  for(var fun in arr){
-    arr[fun]();
-  }
-
-  console.log( objs[0] === objs[0]);
+  // demo
+  var departmentInstance = new Department();
+  console.log('departmentRef\'s company: ', departmentInstance.getCompany());  // Department得到了Company的方法‘getCompany’
 </script>
 
 

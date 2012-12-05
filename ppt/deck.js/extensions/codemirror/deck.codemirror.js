@@ -232,9 +232,15 @@
     var $slides    = $[deck]('getSlides');
     // codemirrorify previous slide
     if (to > 0) {
-      codemirrorify($.deck('getSlide', to - 1));
-    } 
-    
+      for(var i =to-1; i>=0; i--){
+        var $slide = $.deck('getSlide', i);
+        if($slide.is('section')){
+          break;
+        }
+        codemirrorify($.deck('getSlide', i));
+      }
+    }
+
     // codemirrorify current slide
     codemirrorify($.deck('getSlide', to));
 
