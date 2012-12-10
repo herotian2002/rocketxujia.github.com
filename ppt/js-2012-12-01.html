@@ -96,14 +96,20 @@
 <!-- Begin slides. Just make elements with a class of slide. -->
 
 <section class="slide slide-scale" id="title">
-	<h1>javascript , you need to know!--part one</h1>
+	<h1>javascript基础原理分享</h1>
+  <ul class="myself">
+    <li>徐佳</li>
+  </ul>
 </section>
 <section class="slide slide-scale" id="menu">
     <h2>content</h2>
     <ul>
-        <li>Object</li>
-        <li></li>
-        <li></li>
+        <li>JS 中各种数据类型</li>
+        <li>JS 的类型转化</li>
+        <li>prototype 原型</li>
+        <li>JS 中function，及js引擎解析过程</li>
+        <li>this工作原理</li>
+        <li>Closures 闭包</li>
     </ul>
 </section>
 
@@ -573,7 +579,7 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
                 <span>原型继承链、</span>
                 <span>属性访问的遍历过程</span>
               </p>
-              <img class="img" src="img/prototype.jpg" alt="prototype extend relation" />
+              <img class="img" src="img/prototype1.jpg" alt="prototype extend relation" />
             </div>
           </td>
         </tr>
@@ -616,15 +622,12 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
     </li>
   </ol>
 </section>
-<script type="text/javascript">
-
-</script>
 <section class="slide">
   <h4 class="m-v16">使用YUI的extend函数demo</h4>
   <ul>
     <li class="slide">
       <p class="code-wrap">
-        <textarea name="code" id="extendDemoCode" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
+        <textarea name="code" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
           var A = function(){};
           A.prototype.propertyA = 'propertyA';
 
@@ -636,6 +639,7 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
           extend(C, B);
 
           // demo
+          var c = new C();
           console.log('c.propertyA: ', c.propertyA);
           console.log('c.propertyB: ', c.propertyB);
         </textarea>
@@ -712,8 +716,6 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
   </ul>
 </section>
 
-
-
 <!--function 函数-->
 <section class="slide">
   <h2>function 函数</h2>
@@ -784,16 +786,15 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
   <div class="slide" id="thisDemo">
     <h3>先看一个demo，看看大家对this的理解：</h3>
     <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var aaa = {};
-        aaa.method = function() {
-        function test() {
-        this.company = "snda";
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var company = {};
+        company.method = function() {
+        function setCompany() {
+        this.name = "snda";
         }
-        test();
-        }
-
-        aaa.method();
-        console.log(aaa.company);
+        setCompany();
+        };
+        company.method();
+        console.log(company.name);
       </textarea>
     </p>
     <p class="slide">大家答案正确嘛？ <span class="slide">即使没答对也没关系，看了后面的分析就知道答案原因了</span></p>
@@ -812,23 +813,23 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
     <p class="code-wrap">
       <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="">this.setTimeout(); // this引用的是window对象
         // function内部: this引用的是window对象
-        function fun(){
+        function Company(){
         this.company = 'snda';
         }
-        fun();
+        Company();
 
         // 对象调用自己的方法
         var obj = {};
-        obj.fun = fun;
-        obj.fun(); // 此时，this引用的是obj对象
+        obj.Company = Company;
+        obj.Company(); // 此时，this引用的是obj对象
 
         // 实例化函数
-        var ref = new fun(); // 此时，this引用的是ref对象
+        var ref = new Company(); // 此时，this引用的是ref对象
 
         // call/apply: 显性的指定this
-        var other = {company:'sysdev'};
-        fun.call(other, 1,2,3); // 此时，this引用的是other对象
-        fun.apply(other, [1,2,3]); // 此时，this引用的是other对象
+        var other = {department:'sysdev'};
+        Company.call(other, 1,2,3); // 此时，this引用的是other对象
+        Company.apply(other, [1,2,3]); // 此时，this引用的是other对象
       </textarea>
     </p>
   </div>
@@ -840,32 +841,35 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
   </h3>
   <div class="slide">
     <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var aaa = {};
-        aaa.company = "snda";
-        aaa.method = function() {
-          console.log('this.company: ', this.company);
-        }
-
-        var test = aaa.method;
-        test();
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var company = {};
+        company.name = "snda";
+        company.method = function() {
+        console.log('this.company: ', this.company);
+        };
+        // demo
+        var method = company.method;
+        method();
       </textarea>
     </p>
   </div>
   <div class="slide">
     <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">function AAA() {
-          this.company = 'aaa';
+      <textarea name="code" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
+        var A = function(){};
+        A.prototype = {
+        propertyA: 'propertyA',
+        getProperty: function(){
+        return this.propertyA;
         }
-        AAA.prototype.method = function() {
-          console.log('this.company: ', this.company);
         };
 
-        function BBB() {
-          this.company = 'bbb';
-        }
-        BBB.prototype = AAA.prototype;
+        var B = function(){};
+        extend(B, A);
+        B.prototype.propertyB = 'propertyB';
 
-        new BBB().method();
+        // demo
+        var b = new B();
+        console.log(b.getProperty());      // 这里的this 指向的是 b;
       </textarea>
     </p>
   </div>
@@ -877,71 +881,87 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
   <h3>先看一个demo，看看大家对闭包的理解：</h3>
   <div class="slide">
     <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true"> window.name = "The Window";
-        var object = {
-        name : "My Object",
-        getNameFunc : function(){
-        var name = "The Function";
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
+        var testFun = function(num){
         return function(){
-        console.log('this.name: ',this.name);  //
-        console.log('name: ', name);  //
+        console.log(num);
         };
         }
-        };
-        object.getNameFunc()();
+
+        var fun1 = testFun(0);
+        var fun2 = testFun(1);
+        fun1();
+        fun2();
       </textarea>
     </p>
   </div>
-  <h3 class="slide">什么是闭包？</h3>
+</section>
+<section class="slide">
+  <h3 class="">什么是闭包？</h3>
   <p class="slide">有人说闭包就是一个函数！对嘛？ <span class="slide">函数是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数</span> </p>
-  <p class="slide">ECMAScript: A "closure" is an expression (typically a function) that can have free variables together with an environment that binds those variables </p>
   <div class="slide">
     <p><strong>总结一下：</strong></p>
     <ul>
       <li class="slide">是javascript里一个重要特性。</li>
-      <li class="slide">有了它，js就能从一个作用域(scope)访问到<strong>外围</strong>的作用域的变量。</li>
+      <li class="slide">有了它，js就能从一个作用域(scope)访问到<strong>外围</strong>的作用域的变量，形成了一个作用域链</li>
       <li class="slide">而函数是 JavaScript 中唯一拥有自身作用域的结构的expression</li>
     </ul>
   </div>
 </section>
 <section class="slide">
-  <h3>利用closure特性模拟面向对象的类？看Demo：</h3>
-  <div class="slide">
-    <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">function Counter(start) {
-        var count = start;
-        return {
-        set: function(count) {
-          count = count;
-        },
+  <h3>我们先讨论一个最简单的全局function的chain scope情景</h3>
+  <p class="slide code-wrap">
+    <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
+      var testFun = function(num){
+      return function(){
+      console.log(num);
+      };
+      };
 
-        get: function() {
-        return count;
-        }
-        }
-        }
-
-        var foo = new Counter(4);
-        foo.set(5);
-        console.log('count:', foo.get()); // 5
-      </textarea>
-    </p>
-  </div>
-  <div class="slide">
-    <p class="code-wrap">
-      <textarea name="code" class="code closureDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">var foo = new Counter(4);
-        foo.hack = function() {
-        count = 1337;
-        };
-      </textarea>
-    </p>
-  </div>
+      var fun1 = testFun(0);
+      fun1();
+    </textarea>
+  </p>
+  <p class="slide">答案很简单，但我们从js引擎的整个解析情景图来分析下</p>
+</section>
+<section class="slide">
+  <h3 class="m-v16">首先看 <strong>js引擎的预解析期</strong></h3>
+  <img src="img/closure1-1.jpg" alt="closure1 之js引擎的预解析期">
+</section>
+<section class="slide">
+  <h3 class="m-v16">然后看 <strong>js引擎的运行期-运行到testFun函数</strong></h3>
+  <img src="img/closure1-2.jpg" alt="closure1 之js引擎的运行期-运行到testFun函数">
+</section>
+<section class="slide">
+  <h3 class="m-v16">首先看 <strong>js引擎的运行期-运行到匿名函数</strong></h3>
+  <img src="img/closure1-3.jpg" alt="closure1 之js引擎的运行期-运行到匿名函数">
+  <p class="slide">这时在执行fun1()中，通过遍历scope链，来显示num变量，结果显而易见。</p>
+  <p class="slide">当fun1运行完后，删除fun1调用对象</p>
+</section>
+<section class="slide opacity-same opacity-trasition">
+  <p class="m-v16">现在我们再看看最初的demo： <span class="slide">同理画出js解析阶段的情景图</span></p>
+  <h3 class="m-v16">略过 <strong>js引擎的预解析期</strong></h3>
+  <h3 class="m-v16">进入 <strong>js引擎的运行期-运行到testFun(0)</strong></h3>
+  <img src="img/closure2-1.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(0)">
+</section>
+<section class="slide opacity-same opacity-trasition">
+  <h3 class="m-v16">进入 <strong>js引擎的运行期-运行到testFun(1)</strong></h3>
+  <img src="img/closure2-2.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(1)">
+</section>
+<section class="slide opacity-same opacity-trasition">
+  <h3 class="m-v16">简化下：去掉fun1定义及call stack，<strong>只关注fun2定义，及call stack-1</strong></h3>
+  <img src="img/closure2-3.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(1)- 去掉fun1定义及call stack">
+</section>
+<section class="slide opacity-same opacity-trasition">
+  <h3 class="m-v16">进入 <strong>js引擎的运行期-运行fun1()</strong></h3>
+  <img src="img/closure2-4.jpg" alt="closure2 之js引擎的运行期-运行fun1()">
+  <p class="slide">这时在执行fun1()中，通过遍历scope链，来显示num变量，结果为0。</p>
+  <p class="slide">当fun1运行完后，删除fun1调用对象</p>
 </section>
 <section class="slide">
   <h3>
     'Closure'更多Demo思考？
   </h3>
-  <!--<p class="slide">所以注意外围作用域变量的值变化的问题，使用一个闭包保存变量值</p>-->
   <p class="code-wrap">
     <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true"> // Closures Inside Loops
       var arr = [];
@@ -956,21 +976,6 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
       }
     </textarea>
   </p>
-  <div class="slide">
-    <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true"> var testFun = function(num){
-        return function(){
-        console.log(num);
-        };
-        }
-
-        var fun1 = testFun(0);
-        var fun2 = testFun(1);
-        fun1();
-        fun2();
-      </textarea>
-    </p>
-  </div>
 </section>
 
 <!--reference-->
@@ -989,7 +994,7 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
 </section>
 <section class="slide">
   <h1>
-    The End!  Thank you to everybody ~
+    The End!  Thank you ~
   </h1>
 </section>
 
@@ -1010,145 +1015,7 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
     <li></li>
   </ul>
 </section>
-<section class="slide">
-  <p class="code-wrap">
-    <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="true">var globalArr = [];
-      function test(){
-      var arr = [], objs = [];
-      for(var i = 0; i < 3; i++) {
-      objs.push(i);
-      arr.push(function(){
-      console.log('i: ',i);
-      });
-      };
 
-      for(var fun in arr){
-      arr[fun]();
-      }
-      globalArr.push(objs);
-      }
-      test();
-      test();
-      console.log( globalArr[0] === globalArr[1]);
-
-      var o ={};
-      globalArr.push(o);
-      globalArr.push(o);
-      console.log( globalArr[2] === globalArr[3]);
-    </textarea>
-  </p>
-
-
-
-
-
-  <div class="slide">
-
-  </div>
-
-</section>
-
-<!--object-->
-<section class="slide">
-  <h2>Object对象</h2>
-  <h3>Everything in JavaScript acts like an
-    <strong>object</strong>, with the only two exceptions being
-    <strong>null</strong> and <strong>undefined</strong>。</h3>
-  <div class="slide">
-    <div class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">// boolean
-        console.log(false.toString());
-
-        // Array
-        console.log([1, 2, 3].toString());
-
-        // function
-        function Foo(){};
-        Foo.bar = 1;
-        console.log( Foo.bar );
-      </textarea>
-    </div>
-    <div class="slide">
-      <div class="code-wrap">
-        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">// 数字
-          console.log(2.toString());
-        </textarea>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="slide">
-  <h3 class="m-v16">那么当比较对象呢？</h3>
-  <div class="code-wrap slide">
-    <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">// ==
-      console.log('{} == {}', {} == {});
-      console.log("new String('foo') == 'foo'", new String('foo') == 'foo');
-      console.log('new Number(10) == 10', new Number(10) == 10);
-      var foo = {};
-      console.log('foo == foo', foo == foo);
-      console.log('\n\n');
-
-      // ===
-      console.log('{} === {}', {} === {});
-      console.log("new String('foo') === 'foo'", new String('foo') === 'foo');
-      console.log('new Number(10) === 10', new Number(10) === 10);
-      var foo = {};
-      console.log('foo === foo', foo === foo);
-    </textarea>
-  </div>
-  <p class="slide m-v16">从demo可以看出：‘==’操作符通过类型转化后比较两对象值是否相等；‘==’操作符是比较两对象是否是同一引用。</p>
-  <div class="slide">
-    <h3>结论 </h3>
-    <p>强烈推荐使用严格的等于操作符。如果类型需要转换，应该在比较之前显式的转换， 而不是使用语言本身复杂的强制转换规则。</p>
-  </div>
-</section>
-<section class="slide">
-  <h3 class="m-v16">JavaScript Coercion　demos for Fun （类型转换） </h3>
-  <p class="code-wrap">
-    <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="true">1 + '2' //=> "12"
-      1 - '2' //=> -1
-      1 / '2' //=> 0.5
-      3 * '2' //=> 6
-    </textarea>
-  </p>
-</section>
-
-<section class="slide">
-  <h2>Object对象</h2>
-  <h3>Everything in JavaScript acts like an
-    <strong>object</strong>, with the only two exceptions being
-    <strong>null</strong> and <strong>undefined</strong>。</h3>
-  <div class="slide">
-    <h3>javascript的所有类型包含：</h3>
-    <ul class="">
-      <li>基本类型：数字、字符串、布尔值，null、undefined</li>
-      <li>复合类型：对象（无序）、数组（有序）</li>
-      <li>特殊类型：函数</li>
-    </ul>
-  </div>
-  <div class="slide">
-    <div class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">// boolean
-        console.log(false.toString());
-
-        // Array
-        console.log([1, 2, 3].toString());
-
-        // function
-        function Foo(){}
-        Foo.bar = 1;
-        console.log( Foo.bar );
-      </textarea>
-    </div>
-    <div class="slide">
-      <div class="code-wrap">
-        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">// 数字
-          console.log(2.toString());
-        </textarea>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <script type="codemirror" data-selector=".extendDemoCode">
@@ -1186,31 +1053,6 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
   foo.increment();
   foo.get(); // 5
 </script>
-<script type="text/javascript">
-  function Company(){
-    this.name = this.company;
-  }
-  Company.prototype = {
-    company: 'snda',
-    getCompany: function(){
-      return this.company;
-    }
-  };
-
-  function Department(){
-    this.name = this.department;
-  }
-  Department.prototype = new Company();  // 使用原型继承
-  Department.prototype.department = 'sysdev';
-  Department.prototype.getDepartment = function(){
-    return this.department;
-  };
-
-  // demo
-  var departmentInstance = new Department();
-  console.log('departmentRef\'s company: ', departmentInstance.getCompany());  // Department得到了Company的方法‘getCompany’
-</script>
-
 
 <!-- End slides. -->
 
