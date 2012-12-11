@@ -632,7 +632,7 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
   <ul>
     <li class="slide">
       <p class="code-wrap">
-        <textarea name="code" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
+        <textarea name="code" class="code yuiExtend" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
           var A = function(){};
           A.prototype.propertyA = 'propertyA';
 
@@ -649,7 +649,23 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
           console.log('c.propertyB: ', c.propertyB);
         </textarea>
       </p>
-      <script type="codemirror" data-selector=".yuiExtend">
+      <script type="codemirror" data-selector=".yuiExtendDemo">
+        var extend = function(subclass, superclass) {
+        var f = function() {};
+        //f拥有superclass的所有对象属性
+        f.prototype = superclass.prototype;
+        //subclass为f的一个实例对象，且拥有superclass的所有属性
+        subclass.prototype = new f();
+        //给subclass定义一个constructor 的属性
+        subclass.prototype.constructor = subclass;
+        //给subclass定义一个superclass 的属性
+        subclass.superclass = superclass.prototype;
+        //如果父类superclass.prototype.constructor没有被自定义，则自定义
+        if (superclass.prototype.constructor == Object.prototype.constructor) {
+        superclass.prototype.constructor = superclass;
+        }
+        };
+
         var A = function(){};
         A.prototype.propertyA = 'propertyA';
 
@@ -670,15 +686,15 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
       <h3>The For In loop</h3>
       <p>是指查找对象属性时遍历原型链上的所有属性，直到Object.prototype。</p>
       <p class="code-wrap">
-        <textarea name="code" class="code yuiExtend" theme="" mode="javascript" style="display: none;" runnable="true">
-          //接着前一个YUI的extend的demo代码
-          for(var p in c){
-            console.log(p, '' + c[p]);
-          }
+        <textarea name="code" class="code yuiExtendDemo" theme="" mode="javascript" style="display: none;" runnable="true">//接着前一个YUI的extend的demo代码
+var c = new C();
+c.propertyC = 'propertyC';
+for(var p in c){
+  console.log(p, '' + c[p]);
+}
         </textarea>
       </p>
-      <p class="slide">性能建议：要合理使用The For In loop。</p>
-      <p class="slide">那么假设一定喜欢用，有什么方法避免这个性能消耗呢？ <span>答案肯定是用的！</span></p>
+      <p class="slide">用法建议：一般我们会与hasOwnProperty一起使用，过滤掉原生链上的属性。</p>
     </li>
   </ul>
 </section>
@@ -688,13 +704,15 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
       <h3><strong>hasOwnProperty</strong> method</h3>
       <p>该方法是JavaScript中唯一一个处理属性但是不需要查找原型链的方法</p>
       <p class="slide code-wrap">
-        <textarea name="code" class="code yuiExtend" theme="" mode="javascript" style="display: none;" runnable="true">
-          //接着前一个YUI的extend的demo代码
-          for(var p in c){
-          if(c.hasOwnProperty(p)){
-          console.log(p, '' + c[p]);
-          }
-          }
+        <textarea name="code" class="code yuiExtendDemo" theme="" mode="javascript" style="display: none;" runnable="true">
+//接着前一个YUI的extend的demo代码
+var c = new C();
+c.propertyC = 'propertyC';
+for(var p in c){
+  if(c.hasOwnProperty(p)){
+    console.log(p, '' + c[p]);
+  }
+}
         </textarea>
       </p>
       <p class="slide">常见用法：会与 <strong>For In</strong>循环一起使用，减少遍历对象原生链的性能消耗。</p>
@@ -1023,7 +1041,7 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
 
 
 
-<script type="codemirror" data-selector=".extendDemoCode">
+<script type="codemirror" data-selector=".yuiExtend">
   var extend = function(subclass, superclass) {
   var f = function() {};
   //f拥有superclass的所有对象属性
