@@ -96,7 +96,7 @@
 <!-- Begin slides. Just make elements with a class of slide. -->
 
 <section class="slide slide-scale" id="title">
-	<h1>javascript基础原理分享</h1>
+	<h2>javascript基础原理分享</h2>
   <ul class="myself">
     <li>徐佳</li>
   </ul>
@@ -603,20 +603,20 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
       <h3>YUI的extend函数实现：</h3>
       <p class="code-wrap">
         <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var extend = function(subclass, superclass) {
-          var f = function() {};
-          //f拥有superclass的所有对象属性
-          f.prototype = superclass.prototype;
-          //subclass为f的一个实例对象，且拥有superclass的所有属性
-          subclass.prototype = new f();
-          //给subclass定义一个constructor 的属性
-          subclass.prototype.constructor = subclass;
-          //给subclass定义一个superclass 的属性
-          subclass.superclass = superclass.prototype;
-          //如果父类superclass.prototype.constructor没有被自定义，则自定义
-          if (superclass.prototype.constructor == Object.prototype.constructor) {
-          superclass.prototype.constructor = superclass;
-          }
-          };
+var f = function() {};
+//f拥有superclass的所有对象属性
+f.prototype = superclass.prototype;
+//subclass为f的一个实例对象，且拥有superclass的所有属性
+subclass.prototype = new f();
+//给subclass定义一个constructor 的属性
+subclass.prototype.constructor = subclass;
+//给subclass定义一个superclass 的属性
+subclass.superclass = superclass.prototype;
+//如果父类superclass.prototype.constructor没有被自定义，则自定义
+if (superclass.prototype.constructor == Object.prototype.constructor) {
+  superclass.prototype.constructor = superclass;
+}
+};
         </textarea>
       </p>
     </li>
@@ -625,26 +625,42 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
 <section class="slide">
   <h4 class="m-v16">使用YUI的extend函数demo</h4>
   <ul>
-    <li class="slide">
+    <li class="slide" id="yuiExtendDe">
       <p class="code-wrap">
-        <textarea name="code" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
-          var A = function(){};
-          A.prototype.propertyA = 'propertyA';
+        <textarea name="code" class="code yuiExtend" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
+var A = function(){};
+A.prototype.propertyA = 'propertyA';
 
-          var B = function(){};
-          extend(B, A);
-          B.prototype.propertyB = 'propertyB';
+var B = function(){};
+extend(B, A);
+B.prototype.propertyB = 'propertyB';
 
-          var C = function(){};
-          extend(C, B);
+var C = function(){};
+extend(C, B);
 
-          // demo
-          var c = new C();
-          console.log('c.propertyA: ', c.propertyA);
-          console.log('c.propertyB: ', c.propertyB);
+// demo
+var c = new C();
+console.log('c.propertyA: ', c.propertyA);
+console.log('c.propertyB: ', c.propertyB);
         </textarea>
       </p>
-      <script type="codemirror" data-selector=".yuiExtend">
+      <script type="codemirror" data-selector=".yuiExtendDemo">
+        var extend = function(subclass, superclass) {
+        var f = function() {};
+        //f拥有superclass的所有对象属性
+        f.prototype = superclass.prototype;
+        //subclass为f的一个实例对象，且拥有superclass的所有属性
+        subclass.prototype = new f();
+        //给subclass定义一个constructor 的属性
+        subclass.prototype.constructor = subclass;
+        //给subclass定义一个superclass 的属性
+        subclass.superclass = superclass.prototype;
+        //如果父类superclass.prototype.constructor没有被自定义，则自定义
+        if (superclass.prototype.constructor == Object.prototype.constructor) {
+        superclass.prototype.constructor = superclass;
+        }
+        };
+
         var A = function(){};
         A.prototype.propertyA = 'propertyA';
 
@@ -654,6 +670,9 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
 
         var C = function(){};
         extend(C, B);
+
+        // demo
+        var c = new C();
       </script>
   </li>
   </ul>
@@ -661,35 +680,38 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
 <section class="slide">
   <h2 class="m-v16">顺便讨论下：与对象有关的几个操作符和方法</h2>
   <ul>
-    <li class="slide">
+    <li class="slide" id="ForIn">
       <h3>The For In loop</h3>
       <p>是指查找对象属性时遍历原型链上的所有属性，直到Object.prototype。</p>
       <p class="code-wrap">
-        <textarea name="code" class="code yuiExtend" theme="" mode="javascript" style="display: none;" runnable="true">
-          //接着前一个YUI的extend的demo代码
-          for(var p in c){
-            console.log(p, '' + c[p]);
-          }
+        <textarea name="code" class="code yuiExtendDemo" theme="" mode="javascript" style="display: none;" runnable="true">
+var c = new C();
+//接着前一个YUI的extend的demo代码
+for(var p in c){
+  console.log(p, '' + c[p]);
+}
         </textarea>
       </p>
-      <p class="slide">性能建议：要合理使用The For In loop。</p>
-      <p class="slide">那么假设一定喜欢用，有什么方法避免这个性能消耗呢？ <span>答案肯定是用的！</span></p>
+      <p class="slide">用法建议：可以和hasOwnProperty一起使用，达到过滤原生链上的属性目的。</p>
     </li>
   </ul>
 </section>
+
 <section class="slide">
   <ul>
     <li>
       <h3><strong>hasOwnProperty</strong> method</h3>
       <p>该方法是JavaScript中唯一一个处理属性但是不需要查找原型链的方法</p>
       <p class="slide code-wrap">
-        <textarea name="code" class="code yuiExtend" theme="" mode="javascript" style="display: none;" runnable="true">
-          //接着前一个YUI的extend的demo代码
-          for(var p in c){
-          if(c.hasOwnProperty(p)){
-          console.log(p, '' + c[p]);
-          }
-          }
+        <textarea name="code" class="code yuiExtendDemo" theme="" mode="javascript" style="display: none;" runnable="true">
+//接着前一个YUI的extend的demo代码
+var c = new C();
+c.propertyC = 'propertyC';
+for(var p in c){
+  if(c.hasOwnProperty(p)){
+    console.log(p, ' ' + c[p]);
+  }
+}
         </textarea>
       </p>
       <p class="slide">常见用法：会与 <strong>For In</strong>循环一起使用，减少遍历对象原生链的性能消耗。</p>
@@ -854,7 +876,7 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
   </div>
   <div class="slide">
     <p class="code-wrap">
-      <textarea name="code" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
+      <textarea name="code" class="code yuiExtend" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
         var A = function(){};
         A.prototype = {
         propertyA: 'propertyA',
@@ -979,7 +1001,7 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
 </section>
 
 <!--reference-->
-<section class="slide">
+<section id="reference" class="slide">
   <h2>参考文章：</h2>
   <ul>
     <li><a href="http://product.dangdang.com/product.aspx?product_id=22628333">《JavaScript高级程序设计》(Nicholas C. Zakas 著作)</a></li>
@@ -1018,7 +1040,7 @@ departmentInstance.getCompany());   // Department得到了Company的方法‘get
 
 
 
-<script type="codemirror" data-selector=".extendDemoCode">
+<script type="codemirror" data-selector=".yuiExtend">
   var extend = function(subclass, superclass) {
   var f = function() {};
   //f拥有superclass的所有对象属性
