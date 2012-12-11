@@ -726,12 +726,15 @@ for(var p in c){
       <h3><strong>Ｄelete</strong>操作符</h3>
       <p class="slide">可以用于删除对象的属性</p>
       <div class="slide code-wrap">
-        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">//接着前一个YUI的extend的demo代码
-          c.propertyA = null;
-          delete c.propertyB;
-          for(var p in c){
-          console.log(p, '' + c[p]);
-          }
+        <textarea name="code" class="code yuiExtendDemo" theme="" mode="javascript" style="display: none;" runnable="true">//接着前一个YUI的extend的demo代码
+var c = new C();
+c.propertyC = 'propertyC';
+c.propertyA = null;
+delete c.propertyB;  // 只能delete对象自身的属性，不能删除原生链上的属性
+delete c.propertyC;
+for(var p in c){
+  console.log(p, '' + c[p]);
+}
         </textarea>
       </div>
       <p class="slide m-v16">常见用法：防止内存泄露，特别在ie下。</p>
@@ -746,8 +749,8 @@ for(var p in c){
     <p>有以下三种定义方式：</p>
     <p class="code-wrap">
     <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="">function aaa() {};// 方式1: 定义变量
-      var bbb = function();     //方式2: 先声明变量，后赋值
-      var ccc = new Function(); //方式3: 不提倡，1) 使用字符串函数体，不直观;2)性能差;
+var bbb = function();     //方式2: 先声明变量，后赋值
+var ccc = new Function(); //方式3: 不提倡，1) 使用字符串函数体，不直观;2)性能差;
     </textarea>
     </p>
   </div>
@@ -756,12 +759,12 @@ for(var p in c){
     <div class="slide">
     <p class="code-wrap">
       <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">//方式1:
-        console.log(aaa); // 'function'，因为foo在代码运行前已经被创建
-        function aaa() {}
+console.log(aaa); // 'function'，因为foo在代码运行前已经被创建
+function aaa() {}
 
-        // 方式2:
-        console.log(bbb); // 'undefined'
-        var bbb = function() {};
+// 方式2:
+console.log(bbb); // 'undefined'
+var bbb = function() {};
       </textarea>
     </p>
     </div>
@@ -785,18 +788,18 @@ for(var p in c){
   </div>
   <p class="code-wrap slide">
     <textarea name="code" class="code" theme="" mode="text/html" style="display: none;" runnable=""><!DOCTYPE html>
-      <html>
-      <head></head>
-      <body>
-      <script type="text/javascript">console.log('script1');</script>
-      <script type="text/javascript">
-        console.log('script2.1');
-        console.log(objectNone.none);
-        console.log('script2.2');
-      </script>
-      <script type="text/javascript">console.log('script3');</script>
-      </body>
-      </html>
+<html>
+<head></head>
+<body>
+<script type="text/javascript">console.log('script1');</script>
+<script type="text/javascript">
+  console.log('script2.1');
+  console.log(objectNone.none);
+  console.log('script2.2');
+</script>
+<script type="text/javascript">console.log('script3');</script>
+</body>
+</html>
     </textarea>
   </p>
 </section>
@@ -809,15 +812,16 @@ for(var p in c){
   <div class="slide" id="thisDemo">
     <h3>先看一个demo，看看大家对this的理解：</h3>
     <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var company = {};
-        company.method = function() {
-        function setCompany() {
-        this.name = "snda";
-        }
-        setCompany();
-        };
-        company.method();
-        console.log(company.name);
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
+var company = {};
+company.method = function() {
+  function setCompany() {
+  this.name = "snda";
+  }
+  setCompany();
+};
+company.method();
+console.log(company.name);
       </textarea>
     </p>
     <p class="slide">大家答案正确嘛？ <span class="slide">即使没答对也没关系，看了后面的分析就知道答案原因了</span></p>
@@ -834,25 +838,26 @@ for(var p in c){
   </ul>
   <div class="slide">
     <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="">this.setTimeout(); // this引用的是window对象
-        // function内部: this引用的是window对象
-        function Company(){
-        this.company = 'snda';
-        }
-        Company();
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="">
+this.setTimeout(); // this引用的是window对象
+// function内部: this引用的是window对象
+function Company(){
+this.company = 'snda';
+}
+Company();
 
-        // 对象调用自己的方法
-        var obj = {};
-        obj.Company = Company;
-        obj.Company(); // 此时，this引用的是obj对象
+// 对象调用自己的方法
+var obj = {};
+obj.Company = Company;
+obj.Company(); // 此时，this引用的是obj对象
 
-        // 实例化函数
-        var ref = new Company(); // 此时，this引用的是ref对象
+// 实例化函数
+var ref = new Company(); // 此时，this引用的是ref对象
 
-        // call/apply: 显性的指定this
-        var other = {department:'sysdev'};
-        Company.call(other, 1,2,3); // 此时，this引用的是other对象
-        Company.apply(other, [1,2,3]); // 此时，this引用的是other对象
+// call/apply: 显性的指定this
+var other = {department:'sysdev'};
+Company.call(other, 1,2,3); // 此时，this引用的是other对象
+Company.apply(other, [1,2,3]); // 此时，this引用的是other对象
       </textarea>
     </p>
   </div>
@@ -864,38 +869,41 @@ for(var p in c){
   </h3>
   <div class="slide">
     <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var company = {};
-        company.name = "snda";
-        company.method = function() {
-        console.log('this.company: ', this.company);
-        };
-        // demo
-        var method = company.method;
-        method();
+      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
+var company = {};
+company.name = "snda";
+company.method = function() {
+  console.log('this.company: ', this.company);
+};
+// demo
+var method = company.method;
+method();
       </textarea>
     </p>
   </div>
+  <p class="slide">demo 展示了把对象的方法赋值给一个局部变量的 this 转变过程。</p>
   <div class="slide">
     <p class="code-wrap">
       <textarea name="code" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
-        var A = function(){};
-        A.prototype = {
-        propertyA: 'propertyA',
-        getProperty: function(){
-        return this.propertyA;
-        }
-        };
+var A = function(){};
+A.prototype = {
+  propertyA: 'propertyA',
+  getProperty: function(){
+    return this.propertyA;
+  }
+};
 
-        var B = function(){};
-        extend(B, A);
-        B.prototype.propertyB = 'propertyB';
+var B = function(){};
+extend(B, A);
+B.prototype.propertyB = 'propertyB';
 
-        // demo
-        var b = new B();
-        console.log(b.getProperty());      // 这里的this 指向的是 b;
+// demo
+var b = new B();
+console.log(b.getProperty());      // 这里的this 指向的是 b;
       </textarea>
     </p>
   </div>
+  <p class="slide">demo 展示了一个有继承关系的父类方法中的 this 转变过程。</p>
 </section>
 
 <!--Closures 闭包-->
@@ -919,7 +927,7 @@ for(var p in c){
     </p>
   </div>
 </section>
-<section class="slide">
+<section class="slide opacity-trasition">
   <h3 class="">什么是闭包？</h3>
   <p class="slide">有人说闭包就是一个函数！对嘛？ <span class="slide">函数是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数</span> </p>
   <div class="slide">
