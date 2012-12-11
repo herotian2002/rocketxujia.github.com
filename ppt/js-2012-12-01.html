@@ -953,7 +953,7 @@ console.log(b.getProperty());      // 这里的this 指向的是 b;
       fun1();
     </textarea>
   </p>
-  <p class="slide">答案很简单，但我们从js引擎的整个解析情景图来分析下</p>
+  <p class="slide">答案很简单，但我们从js引擎的整个解析情景图来分析下( <span style="color: red">注意每张图中变化部分是用红色标出的</span>)</p>
 </section>
 <section class="slide">
   <h3 class="m-v16">首先看 <strong>js引擎的预解析期</strong></h3>
@@ -971,21 +971,21 @@ console.log(b.getProperty());      // 这里的this 指向的是 b;
 </section>
 <section class="slide opacity-same opacity-trasition">
   <p class="m-v16">现在我们再看看最初的demo： <span class="slide">同理画出js解析阶段的情景图</span></p>
-  <h3 class="m-v16">略过 <strong>js引擎的预解析期</strong></h3>
-  <h3 class="m-v16">进入 <strong>js引擎的运行期-运行到testFun(0)</strong></h3>
-  <img src="img/closure2-1.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(0)">
+  <h3 class="slide m-v16">略过 <strong>js引擎的预解析期</strong></h3>
+  <h3 class="slide m-v16">进入 <strong>js引擎的运行期-运行到testFun(0)</strong></h3>
+  <img class="slide" src="img/closure2-1.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(0)">
 </section>
 <section class="slide opacity-same opacity-trasition">
   <h3 class="m-v16">进入 <strong>js引擎的运行期-运行到testFun(1)</strong></h3>
-  <img src="img/closure2-2.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(1)">
+  <img class="slide" src="img/closure2-2.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(1)">
 </section>
 <section class="slide opacity-same opacity-trasition">
   <h3 class="m-v16">简化下：去掉fun1定义及call stack，<strong>只关注fun2定义，及call stack-1</strong></h3>
-  <img src="img/closure2-3.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(1)- 去掉fun1定义及call stack">
+  <img class="slide" src="img/closure2-3.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(1)- 去掉fun1定义及call stack">
 </section>
 <section class="slide opacity-same opacity-trasition">
   <h3 class="m-v16">进入 <strong>js引擎的运行期-运行fun1()</strong></h3>
-  <img src="img/closure2-4.jpg" alt="closure2 之js引擎的运行期-运行fun1()">
+  <img class="slide" src="img/closure2-4.jpg" alt="closure2 之js引擎的运行期-运行fun1()">
   <p class="slide">这时在执行fun1()中，通过遍历scope链，来显示num变量，结果为0。</p>
   <p class="slide">当fun1运行完后，删除fun1调用对象</p>
 </section>
