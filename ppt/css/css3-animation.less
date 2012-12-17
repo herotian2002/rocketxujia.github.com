@@ -1,0 +1,225 @@
+// Core variables and mixins
+@import "prefixer.less";
+
+// ppt global
+body{ font-family: Tahoma,Arial,"\5b8b\4f53",sans-serif; }
+.deck-container section.slide-scale{ font-size: 1.75em; }
+.deck-container section.slide .m-v16{ margin: 16px 0; }
+.csstransforms.csstransitions .opacity-trasition.deck-next, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) {
+  left: 0;
+  top: 0;
+}
+.csstransforms.csstransitions .opacity-trasition.deck-next h2, .csstransforms.csstransitions .opacity-trasition.deck-next pre, .csstransforms.csstransitions .opacity-trasition.deck-next .sample-content, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) h2, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) pre, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) .sample-content {
+  -webkit-transform: translate3d(0, -300%, 0);
+  -moz-transform: translate(0, -300%);
+  -ms-transform: translate(0, -300%);
+  -o-transform: translate(0, -300%);
+  transform: translate3d(0, -300%, 0);
+}
+.csstransforms.csstransitions .opacity-trasition h2, .csstransforms.csstransitions .opacity-trasition .sample-content {
+  -webkit-transition: -webkit-transform 300ms ease-in-out 200ms;
+  -moz-transition: -moz-transform 300ms ease-in-out 200ms;
+  -ms-transition: -ms-transform 300ms ease-in-out 200ms;
+  -o-transition: -o-transform 300ms ease-in-out 200ms;
+  transition: transform 300ms ease-in-out 200ms;
+}
+.csstransforms.csstransitions .opacity-trasition pre {
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  -moz-transition: -moz-transform 300ms ease-in-out;
+  -ms-transition: -ms-transform 300ms ease-in-out;
+  -o-transition: -o-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+}
+.csstransforms.csstransitions .opacity-trasition .slide {
+  visibility: visible;
+  opacity: 0;
+  -webkit-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+  -moz-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+  -ms-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+  -o-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+  transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+.csstransforms.csstransitions .opacity-trasition .deck-current, .csstransforms.csstransitions .opacity-trasition .deck-before, .csstransforms.csstransitions .opacity-trasition .deck-previous {
+  opacity: 1;
+}
+
+
+.deck-container > .slide.opacity-same .deck-before, .deck-container > .slide.opacity-same .deck-previous{
+  opacity: 1;
+}
+
+// key
+#controls-slide .key {
+  font-family: 'Droid Sans';
+  color: black;
+  display: inline-block;
+  padding: 6px 10px 3px 10px;
+  font-size: 25px;
+  line-height: 30px;
+  text-shadow: none;
+  letter-spacing: 0;
+  bottom: 10px;
+  position: relative;
+  -moz-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -o-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+}
+#controls-slide .key { font-family: "Lucida console", Monospace, Arial; }
+#controls-slide .key {
+  bottom: 2px;
+}
+
+/* Demo Example*/
+div.bs-docs-example {
+  position: relative;
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  *padding-top: 19px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* Echo out a label for the example */
+div.bs-docs-example:after {
+  content: "Example";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+  -webkit-border-radius: 4px 0 4px 0;
+  -moz-border-radius: 4px 0 4px 0;
+  border-radius: 4px 0 4px 0;
+}
+
+/* Remove spacing between an example and it's code */
+div.bs-docs-example + .prettyprint {
+  margin-top: -20px;
+  padding-top: 15px;
+}
+
+// 2D transform
+div.example-transform{
+  width: 350px;
+  height:40px;
+  padding: 8px 16px;
+  background: blue;
+  .transition(all 1s linear 0s);
+}
+
+div.example-transform0:hover{
+  -webkit-transform: rotate(360deg);
+}
+
+div.example-transform1:hover{
+  -webkit-transform: skew(180deg);
+}
+
+div.example-transform2{
+  .transition-duration(0.3s);
+}
+div.example-transform2:hover{
+  -webkit-transform: scale(1, 0.5);
+}
+
+div.example-transform3{
+  .transition-duration(0.3s);
+}
+div.example-transform3:hover{
+  -webkit-transform: translate(10px, 20px);
+}
+
+//transform-origin
+div.example-transform-origin{
+  .transform-origin(right bottom);
+  .transition(all 1s linear 0s);
+}
+
+div.example-transform-origin0:hover{
+  -webkit-transform: rotate(360deg);
+}
+
+div.example-transform-origin1:hover{
+  -webkit-transform: skew(180deg);
+}
+
+div.example-transform-origin2{
+  .transition-duration(0.3s);
+}
+div.example-transform-origin2:hover{
+  -webkit-transform: scale(1, 0.5);
+}
+
+div.example-transform-origin3{
+  .transition-duration(0.3s);
+}
+div.example-transform-origin3:hover{
+  -webkit-transform: translate(10px, 20px);
+}
+
+
+
+// 3D transform
+div.threeD-animation-example {
+  height: 200px;
+  margin: 75px 0px 0px 75px;
+  width: 200px;
+}
+div.threeD-animation-example .cube{
+  width: 100%;
+  height: 100%;
+  .perspective(300px);
+  .perspective-origin(150% 150%);
+  .transform-style(preserve-3d);
+}
+
+div.threeD-animation-example .face{
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: none;
+  line-height: 100px;
+  font-family: arial, sans-serif;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+div.threeD-animation-example .front{
+  .transform( translateZ( 50px ) );
+}
+div.threeD-animation-example .back{
+  background: rgba(   0, 255,   0,  1 );
+  color: black;
+  .transform( translateZ( -50px ) );
+}
+div.threeD-animation-example .right{
+  background: rgba( 196,   0,   0, 0.7 );
+  .transform(  rotateY( 90deg) translateZ( 50px ));
+}
+div.threeD-animation-example .left{
+  background: rgba(   0,   0, 196, 0.7 );
+  .transform( rotateY(-90deg) translateZ( 50px ) );
+}
+div.threeD-animation-example .top{
+  background: rgba( 196, 196,   0, 0.7 );
+  .transform( rotateX( 90deg) translateZ( 50px ) );
+}
+div.threeD-animation-example .bottom{
+  background: rgba( 196,   0, 196, 0.7);
+  .transform( rotateX(-90deg) translateZ( 50px ) );
+}

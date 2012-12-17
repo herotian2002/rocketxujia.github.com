@@ -31,101 +31,32 @@
     <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/night.css">-->
 
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
-	<!--<link rel="stylesheet" href="deck.js/themes/style/web-2.0.css">-->
-	<link rel="stylesheet" href="deck.js/themes/style/neon.css">
+	<link rel="stylesheet" href="deck.js/themes/style/web-2.0.css">
+	<!--<link rel="stylesheet" href="deck.js/themes/style/neon.css">-->
 
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
 	<!--<link rel="stylesheet" href="deck.js/themes/transition/cube.css">-->
 	<!--<link rel="stylesheet" href="deck.js/themes/transition/fade.css">-->
 	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
+  
+  
 
   <!--sample-->
-  <style type="text/css">
-  body{ font-family: Tahoma,Arial,"\5b8b\4f53",sans-serif; }
-  .deck-container section.slide-scale{ font-size: 1.75em; }
-  .deck-container section.slide .m-v16{ margin: 16px 0; }
-  .csstransforms.csstransitions .opacity-trasition.deck-next, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) {
-    left: 0;
-    top: 0;
-  }
-  .csstransforms.csstransitions .opacity-trasition.deck-next h2, .csstransforms.csstransitions .opacity-trasition.deck-next pre, .csstransforms.csstransitions .opacity-trasition.deck-next .sample-content, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) h2, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) pre, .csstransforms.csstransitions .opacity-trasition.deck-before:not(.deck-child-current) .sample-content {
-    -webkit-transform: translate3d(0, -300%, 0);
-    -moz-transform: translate(0, -300%);
-    -ms-transform: translate(0, -300%);
-    -o-transform: translate(0, -300%);
-    transform: translate3d(0, -300%, 0);
-  }
-  .csstransforms.csstransitions .opacity-trasition h2, .csstransforms.csstransitions .opacity-trasition .sample-content {
-    -webkit-transition: -webkit-transform 300ms ease-in-out 200ms;
-    -moz-transition: -moz-transform 300ms ease-in-out 200ms;
-    -ms-transition: -ms-transform 300ms ease-in-out 200ms;
-    -o-transition: -o-transform 300ms ease-in-out 200ms;
-    transition: transform 300ms ease-in-out 200ms;
-  }
-  .csstransforms.csstransitions .opacity-trasition pre {
-    -webkit-transition: -webkit-transform 300ms ease-in-out;
-    -moz-transition: -moz-transform 300ms ease-in-out;
-    -ms-transition: -ms-transform 300ms ease-in-out;
-    -o-transition: -o-transform 300ms ease-in-out;
-    transition: transform 300ms ease-in-out;
-  }
-  .csstransforms.csstransitions .opacity-trasition .slide {
-    visibility: visible;
-    opacity: 0;
-    -webkit-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
-    -moz-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
-    -ms-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
-    -o-transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
-    transition: color 300ms ease-in-out, opacity 300ms ease-in-out;
-  }
-  .csstransforms.csstransitions .opacity-trasition .deck-current, .csstransforms.csstransitions .opacity-trasition .deck-before, .csstransforms.csstransitions .opacity-trasition .deck-previous {
-    opacity: 1;
-  }
-
-
-  .deck-container > .slide.opacity-same .deck-before, .deck-container > .slide.opacity-same .deck-previous{
-    opacity: 1;
-  }
-  </style>
+  <link rel="stylesheet" href="css/css3-animation.css">
 
 	<!-- Required Modernizr file -->
 	<script src="deck.js/modernizr.custom.js"></script>
+  <!-- Required JS files. -->
+  <script src="deck.js/jquery-1.7.2.min.js"></script>
   <base target="_blank">
 </head>
 <body class="deck-container">
 
 <!-- Begin slides. Just make elements with a class of slide. -->
-<section class="slide" id="controls-slide">
+<section class="slide opacity-same" id="controls-slide">
   <h2 class="m-v16">说明：</h2>
   <p class="">本ppt利用开源在线html presentation制作框架deck.js编写。为了更流畅的浏览ppt，请使用chrome等主流浏览器</p>
   <h3 class="m-v16">ppt控制键：</h3>
-  <style type="text/css">
-    #controls-slide .key {
-      font-family: 'Droid Sans';
-      color: black;
-      display: inline-block;
-      padding: 6px 10px 3px 10px;
-      font-size: 25px;
-      line-height: 30px;
-      text-shadow: none;
-      letter-spacing: 0;
-      bottom: 10px;
-      position: relative;
-      -moz-border-radius: 10px;
-      -khtml-border-radius: 10px;
-      -webkit-border-radius: 10px;
-      border-radius: 10px;
-      background: white;
-      box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
-      -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
-      -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
-      -o-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
-    }
-    #controls-slide .key { font-family: "Lucida console", Monospace, Arial; }
-    #controls-slide .key {
-      bottom: 2px;
-    }
-  </style>
   <ul>
     <li>按<span class="key">←</span> and <span class="key">→</span>键，控制翻页.</li>
     <li>按<span class="key">P</span>键，弹出光标画笔</li>
@@ -135,945 +66,263 @@
   <p>note: Ctrl/Command and + or - to zoom in and out if slides don’t fit.</p>
   <span class="counter"></span>
 </section>
-<section class="slide" id="title">
-	<h1>javascript基础原理分享</h1>
+<section class="slide opacity-same" id="title">
+	<h1>玩转css3 animation</h1>
   <ul class="myself">
-    <li>Name: 徐佳</li>
-    <li>专职于前端开发，目前就职于盛大</li>
+    <li>作者: 徐佳</li>
+    <li>目前专职于前端开发，目前就职于盛大</li>
     <li>Blog: <a href="http://xjsxj.com">http://blog.xjsxj.com</a></li>
     <li>Mail: <a href="https://github.com/rocketxujia">rocketxj@gmail.com</a></li>
   </ul>
 </section>
-<section class="slide" id="menu">
+<section class="slide opacity-same" id="menu">
     <h2>content</h2>
     <ul>
-        <li>JS 中各种数据类型</li>
-        <li>JS 的类型转化</li>
-        <li>prototype 原型</li>
-        <li>JS 中function，及js引擎解析过程</li>
-        <li>this工作原理</li>
-        <li>Closures 闭包</li>
+        <li>介绍css3动画属性</li>
+
     </ul>
 </section>
 
+<!--browser support 浏览器兼容性-->
+<section class="slide opacity-same">
+  <h2>browser support 浏览器兼容性</h2>
 
-<!--Javascript Data Type(数据类型)-->
-<section class="slide opacity-trasition">
-  <div class="">
-    <h2>Javascript Data Type(数据类型)：</h2>
-    <ul class="slide">
-      <li>Primary Data(基本类型)：数字、字符串、布尔值 (都是字面值形式)</li>
-      <li>Composite Data(复合类型)：对象（无序）、数组（有序）。当然无序对象里又分为：Function、String...等不同的对象类型</li>
-      <li>Especial Date(特殊类型)：null、undefined</li>
-    </ul>
-    <h3 class="slide m-v16">The <strong>undefined</strong> Data Type: 未定义类型</h3>
-    <p class="slide">大家想想，有哪些情况会产生undefined值？<span class="slide">我总结了下：有如下几种情况：</span></p>
-    <p class="slide code-wrap">
-      <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="">// The predefined variable property of The global window.
-        window.undefined;
-
-        // 仅声明一个变量，不赋予任何值
-        var x;
-        if (x === undefined) {
-        console.log("x is undefined <br/>");
-        }
-
-        // 仅定义一个空对象变量，没有显性的属性
-        o={};
-        if ( o.none === undefined ) {
-        console.log("o.none is undefined <br/>");
-        }
-
-        // 定义的函数内，无返回值情况
-        function test(a, b){
-          // return;
-        };
-        test();
-
-        // Function parameters that do not have any explicit value passed.
-        (function( window, undefined ) {
-
-        })(window);
-
-        // Any expression in the form of void(expression)
-        void(true);
-      </textarea>
-    </p>
-  </div>
+  <p class="slide">数据来自：http://caniuse.com/( S = Supported; N = not supported; P = partially supported; U = Support unknown; )</p>
+  <ul>
+    <li class="slide">Transition: IE10: S; | Firefox: S; | Chrome: S; | Safari: S; | Opera: S | iOS Safari: S | Opera Mini: N; | Android Browser: S | Blackberry Browse7.0: S; </li>
+    <li class="slide">2D transform: IE9: S; | Firefox: S; | Chrome: S; | Safari: S; | Opera: S | iOS Safari: S | Opera Mini: N; | Android Browser: S | Blackberry Browser7.0: S; </li>
+    <li class="slide">animation: IE10: S; | Firefox: S; | Chrome: S; | Safari: S; | Opera: S | iOS Safari: S | Opera Mini: N; | Android Browser 4.0: S （2.1: P） | Blackberry Browser7.0: S; </li>
+    <li class="slide">3D transform: IE10: S; | Firefox: S; | Chrome: S; | Safari: S; | Opera: N | iOS Safari: S | Opera Mini: N; | Android Browser 3.0: S | Blackberry Browser7.0: S; </li>
+    <li class="slide">Filter Effects: IE10: N; | Firefox18.0: S; | Chrome22: S; | Safari6.0: S; | Opera: N | iOS Safari6.0: S | Opera Mini: N; | Android Browser: N | Blackberry Browser10.0: S; </li>
+  </ul>
+  <p>注意：主流浏览器webkit，firefox，opera的支持，属性名分别为 -webkit-transform，-moz-transform，-o-transform;需要有前缀。</p>
 </section>
-<!--undefined-->
-<section class="slide">
-  <h3 class=""><strong>undefined</strong>经常忽略的一个性能问题</h3>
-  <div class="slide">
-    <p>想想jQuery源码中为什么需要这么做？</p>
-    <p class="code-wrap">
-      <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="">
-        (function( window, undefined ) {
-        })(window);
-      </textarea>
-    </p>
-  </div>
-  <p class="slide">因为当js引擎运行读取到undefined变量时，总会向上遍历闭包scope链，搜索到window对象名叫‘undefined'的属性上为止，
-    而且window对象是一个拥有庞大属性的全局变量。这整个过程是一个耗性能的过程。</p>
-  <p class="slide">所以我们一般会缓存到function内，做到提高性能。</p>
-</section>
-<section class="slide">
-  <h3 class="m-v16">一个常见的参数判断的错误</h3>
-  <p class="slide code-wrap">
-    <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="true">
-      function argumentNum(val){
-      if(typeof val == 'undefined'){
-      console.log( '无参数' );
-      return;
-      }
-      console.log( '有参数' );
-      }
 
-      // demo
-      argumentNum(undefined);
-      argumentNum();
-    </textarea>
+<section class="slide opacity-same opacity-same">
+  <ul>
+    <li >transition：过渡，表示动画的过程</li>
+    <li class="slide">transform：变形。</li>
+    <li class="slide">animation：动画</li>
+    <li class="slide">Filter Effects：滤镜效果</li>
+  </ul>
+</section>
+
+<!--transition 过渡-->
+<section class="slide opacity-same">
+  <h2>transition 过渡</h2>
+  <p class="slide">transition: <‘transition-property’> || <‘transition-duration’> || <‘transition-timing-function’> || <‘transition-delay’> [, ...] <br />
+    有四个子项:  属性、持续时间、值变化算法类型、延迟开始时间， 且顺序一定，但每项都可选。
   </p>
-  <p class="slide">很明显，argumentNum(undefined)返回了不是我们所期望的'有参数'.怎么解决这个问题呢？</p>
-  <p class="slide code-wrap">
-    <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="true">
-      function argumentNum(val){
-      if(arguments.length === 0){
-      console.log('无参数');
-      }
-      console.log('有参数');
-      }
-
-      // demo
-      argumentNum(undefined);
-      argumentNum();
-    </textarea>
-  </p>
-  <p class="slide">使用arguments.length来标识参数个数是最有效的方法。jQuery源码中就能在很多工具函数里看见这种参数判断的影子。</p>
-</section>
-<!--null-->
-<section class="slide">
-  <h3 class=" m-v16">The <strong>null</strong> Data Type</h3>
-  <p class="slide">EMACScript官方的定义：A variable that contains null contains no valid Number, String, Boolean, Array, or Object. </p>
-  <p class="slide">null是表示尚未存在的对象,为什么是一个对象呢？</p>
-  <p class="slide code-wrap">
-    <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="true">
-      console.log( 'typeof null: ', typeof null );
-    </textarea>
-  <p class="slide">js引擎内部，就解析null是一个空引用，一个未指向任何对象空引用。</p>
-  <div class="slide">
-    <p>那我们再看看，null的一般用法:</p>
-    <p class="code-wrap">
-      <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="true">
-        //当定义变量，还不知道会赋予哪个其他类型时
-        var a = null;
-
-        // 当需要删除变量的内容，却不想删除变量本身的情况
-        var obj.test = null;
-      </textarea>
-    </p>
-  </div>
-</section>
-
-<!--Truthy and falsy in JavaScript-->
-<section class="slide opacity-trasition">
-  <h3 class="m-v16">The <strong>Boolean</strong> Data Type</h3>
-  <p class="slide">其实，布尔值类型，大家再熟悉不过了。我这里要说的是下面这个问题。</p>
-  <p class="slide">我们知道任何一种语言里的每个值都有falsy或truthy(即真假性)性质的，那么在javascipt里，哪些值是具有falsy性质的？</p>
-  <p class="slide code-wrap">
-    <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="true">
-      // false本身
-      console.log('false is', !!false);
-
-      // null
-      console.log('null is', !!null);
-
-      // undefined
-      console.log('undefined is', !!undefined);
-
-      // The empty string ''
-      console.log('The empty string "" is', !!'');
-
-      // The number 0
-      console.log('The number 0 is', !!0);   // 注意字符串‘０’不是fasly的。
-
-      // The number NaN (yep, 'Not a Number' is a number, it is a special number)
-      console.log('The number NaN is', !!NaN);
-    </textarea>
-  </p>
-  <p class="slide">可以看出：以上的六种值是有falsy性质的。<br />
-    <span class="slide">而其实在javascript语言中除此六种之外的其它值都是有truthy性质。</span><span class="slide">特别注意字符串‘０’不是fasly的。</span></p>
 
 </section>
-<section class="slide">
-  <div class="">
-    <p class="m-v16">所以，我们会在源码里经常看到js特有的条件逻辑判断：</p>
-    <p class="slide code-wrap">
-      <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="">
-        // 给形参指定默认值
-        function test(o){
-        var o = o || {}; //当实参o未指定时，默认为空对象。
-        }
-
-        test() // o 为{}；
-      </textarea>
-    </p>
-    <p class="slide">这是被推荐的’给形参指定默认值’的写法</p>
-  </div>
-  <div class="slide">
-    <h3>现在，我们看个demo，练习下：</h3>
-    <p class="slide code-wrap">
-      <textarea name="code" class="code closureDemoCode" theme="" mode="javascript"  runnable="true">
-        var myValue= 6;
-        var yourValue = 5;
-        var hisValue = 0;
-        var herValue = 'the best';
-        var newValue = myValue && yourValue && hisValue && herValue;
-        console.log('newValue is', newValue);
-      </textarea>
-    </p>
-  </div>
-</section>
-
-<!--type casting 类型转化-->
-<section class="slide opacity-trasition">
-  <h2>type casting 类型转化</h2>
-  <p class="slide">javascript是一门弱类型的语言。 <br /><span class="slide">总有初学者误认为这句话是指js没有数据类型， </span>
-    <span class="slide">其实真正的含义是指开发者不需要显性的指定转化到<strong>上下文中需要的数据类型</strong>，js引擎会帮忙隐性地自动转换。</span></p>
-  <p class="slide">大家看下各种不同类型上下文的自动转化demo</p>
-  <div class="slide code-wrap">
-    <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">// 布尔类型上下文
-      var o = {};
-      if(o){
-      console.log('{}在if表达式语句中会自动转化为布尔值', !!o);
-      }
-
-      // 数字类型上下文
-      var num = 9 / '3';
-      console.log(num)
-
-      // 字符串类型上下文
-      var val = true + 'true';
-      console.log(val);
-
-      // 对象类型上下文
-      console.log('false.toString(): ', false);
-    </textarea>
-  </div>
-
-</section>
-<section class="slide opacity-trasition">
-  <p class=" m-v16">是不是觉得隐性自动类型转换看起来似乎很<cite>美好阿？</cite> <span class="slide">可真的是这样嘛？</span></p>
-  <p class="slide"><img src="img/toyoto.png" alt=""></p>
-  <p class="slide">如果把js比作这部本田车，那么‘自动类型转换’就像是定速巡航系统。 <span class="slide">为什么会这么说呢?</span></p>
-</section>
-<section class="slide">
-  <h3>隐性自动类型转换</h3>
-  <P class="slide">太复杂，太多的不可预料性～在各种运算符中，就会出现复杂而意想不到的类型转化</P>
-  <ul>
-    <li class="slide">
-      <h3>加减运算符：<strong>+</strong>/<strong>-</strong></h3>
-      <div class="slide code-wrap">
-        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-          // 字符串的加减
-          console.log("'1' + '1'=", '1' + '1'); // The plus does string concatenation
-          console.log("'1' - '1'=", '1' - '1'); // The minus coerces both strings into being integers
-        </textarea>
-      </div>
-      <p class="slide">从demo我们可以看出规律吧！？</p>
-    </li>
-  </ul>
-</section>
-<!--operator-->
-<section class="slide">
-  <ul>
-    <li class="">
-      <h3 class="m-v16">等于操作符：<strong>==</strong></h3>
-      <ul>
-        <li class="slide">
-          <h4 class="m-v16">当有undefined或者null的等于比较</h4>
-          <div class="code-wrap slide">
-            <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-              // undefined and null
-              console.log( 'null == undefined is', null == undefined);  //
-              console.log( '"" == undefined is', "" == undefined);  //
-              console.log( '"" == null is', "" == null);   //
-            </textarea>
-          </div>
-          <p class="slide m-v16">从demo大家可以看出规律是！？</p>
-        </li>
-        <li class="slide">
-          <h4 class="m-v16">有数字基本类型与其他类型进行等于比较时</h4>
-          <div class="slide code-wrap">
-            <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-              // Number compare to String, thus comparison of Number == parseFloat(String)
-              console.log( '0 ==  "0"  is', 0 == "0" );
-              console.log( '0 ==  ""  is', 0 == "" );
-              console.log( '0 ==  "1"  is', 0 == "1" );
-            </textarea>
-          </div>
-          <p class="slide m-v16">那么，这种类型比较的规律是！？</p>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</section>
-<section class="slide">
-  <ul>
-    <li class="">
-      <h3 class="m-v16">等于操作符：<strong>==</strong></h3>
-      <ul>
-        <li class="slide">
-          <h4 class="m-v16">当有布尔基本类型与数字基本类型进行等于比较时</h4>
-          <div class="code-wrap ">
-            <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-              // Boolean compare to y, thus comparison of parseFloat(Boolean) == y
-              // false == 0 and true == 1 but true != 2
-              console.log( 'true == 0 is', true == 0);   // false
-              console.log( 'true == 1 is', true == 1);   // true
-              console.log( 'true == 3 is', true == 3);   // false
-            </textarea>
-          </div>
-          <p class="slide m-v16">从demo看出，这种类型比较的规律是！？</p>
-        </li>
-        <li class="slide">
-          <h4 class="m-v16">当有对象类型与其他基本类型进行等于比较时</h4>
-          <div class="slide code-wrap">
-            <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-              // Object compare to string/number/boolean, thus comparison of ToPrimitive(Boolean) == y
-              // ToPrimitive means implicit valueOf call or toString if toString is defined and valueOf is not
-              var o ={
-              valueOf: function(){
-              return 5;
-              },
-              toString: function(){
-              return '4';
-              }
-              }
-              console.log('o==5: ',o==5);
-              console.log('o==4: ',o==4);
-              // console.log('{} == {}', {} == {});
-            </textarea>
-          </div>
-          <p class="slide m-v16">那么，这种类型比较的规律是！？</p>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
-
-</section>
-<section class="slide">
-  <ul>
-    <li><h3 class="m-v16">严格等于操作符<strong>===</strong></h3>
-      <div class="code-wrap slide">
-        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">// undefined and null
-          console.log( 'null === undefined is', null === undefined);  //
-          console.log( '"" === undefined is', "" === undefined);  //
-          console.log( '"" === null is', "" === null);   //
-
-          // Number and String
-          console.log( '0 ===  "0"  is', 0 === "0" );
-          console.log( '0 ===  ""  is', 0 === "" );
-          console.log( '0 ===  "1"  is', 0 === "1" );
-
-          //...
-        </textarea>
-      </div>
-      <p class="slide m-v16">上面的结果我们可以看出：两个操作数类型不同就肯定不严格相等。</p>
-    </li>
-  </ul>
-</section>
-<section class="slide opacity-same">
-  <h3 class="m-v16">我们应该怎么看待<strong>js自动类型转换</strong>特性呢？</h3>
-  <ul>
-    <li class="slide">重要，因为它无处不在，是js弱类型的体现</li>
-    <li class="slide">但是它有复杂转换规则，完全不能预计自动转换后的结果。</li>
-    <ul>
-      <li class="slide">所以，js语言大师Douglas Crockford:　推荐要在比较运算时使用'===‘</li>
-    </ul>
-    <li class="slide">它也会带来性能消耗，比如一个字符串为了和一个数组进行比较，双方会经过强制多次转换变为数字比较。</li>
-  </ul>
-  <h3 class="slide">所以我觉得，js的类型转换是一把双刃剑，是否能发挥它的作用，就看你的功力。</h3>
-</section>
-
-
-<!--object-->
-<section class="slide opacity-same">
-  <h2>Object对象</h2>
-  <p class="slide">任何面向对象语言中，都有对象的概念。js也不例外，也有相同意义的对象。</p>
-  <div class="slide code-wrap" id="companyObject">
-    <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-      var company = {
-        company: 'snda',
-        getCompany: function(){
-          return this.company;
-        }
-      };
-      console.log( company.getCompany() );
-    </textarea>
-  </div>
-  <h3 class="slide m-v16">但是javascript对象与其他语言的对象有哪些不同呢？</h3>
-</section>
-<section class="slide">
-  <ol>
-    <li class="">
-      <h3>object是js语言的最重要的基础。除了null和undefined，任何值都可以看作是对象。</h3>
-      <div class="slide">
-        <img src="img/Object.prototype.png" alt="Object.prototype">
-      </div>
-      <p class="slide">js中的所有其他对象都继承于Object.</p>
-      <div class="slide code-wrap">
-        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">// boolean
-          console.log(false.toString());
-
-          // number
-          console.log((1).toString());
-
-          // function
-          function Foo(){};
-          Foo.bar = 1;
-          console.log( Foo.bar );
-        </textarea>
-      </div>
-    </li>
-  </ol>
-</section>
-<!--prototype 原型-->
-<style type="text/css">
-  table#prototype_base {
-    height: 460px;
-    width:100%;
-    table-layout: fixed;
-  }
-</style>
-<section class="slide opacity-same">
-  <ol>
-    <li style="visibility: hidden; height: 0px;">&nbsp;</li>
-    <li class="">
-      <h3>Prototype原型对象</h3>
-      <p class="slide">对应 <a href="#companyObject">之前company的demo</a>，现在我们使用prototype来定义<strong>Company类</strong></p>
-      <div class="slide code-wrap">
-        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-          // 定义Company类
-          function Company(){
-          }
-          Company.prototype = {
-            company: 'snda',
-            getCompany: function(){
-              return this.company;
-            }
-          };
-
-          // demo
-          var companyRef = new Company();
-          console.log( companyRef.getCompany() );
-        </textarea>
-      </div>
-    </li>
-  </ol>
-</section>
-<script type="codemirror" data-selector=".prototype-extend">
-  // 定义Company类
-  function Company(){
-  }
-  Company.prototype = {
-  company: 'snda',
-  getCompany: function(){
-  return this.company;
-  }
-  };
-
-  // demo
-  var companyRef = new Company();
-  console.log( companyRef.getCompany() );
-</script>
-<section class="slide opacity-same">
-  <ol>
-    <li style="visibility: hidden; height: 0px;">&nbsp;</li>
-    <li style="visibility: hidden; height: 0px;">&nbsp;</li>
-    <li class="">
-      <h3>Prototype原型对象实现继承</h3>
-
-      <p class="slide">我们定义一个Department(实现继承Company)</p>
-      <table id="prototype_base" class="slide" >
-        <tr>
-          <td style="width:auto;">
-            <div id="prototypeChain" class="code-wrap">
-              <textarea name="code" class="code prototype-extend" theme="" mode="javascript" style="display: none;" runnable="true">
-function Department(){
-}
-Department.prototype = new Company(); // 使用原型继承
-Department.prototype.department = 'sysdev';
-Department.prototype.getDepartment = function(){
-return this.department;
-};
-
-// demo
-var departmentInstance = new Department();
-console.log('departmentRef\'s company: ',
-departmentInstance.getCompany());   // Department得到了Company的方法‘getCompany’
-              </textarea>
-            </div>
-          </td>
-          <td style="width:400px; padding-left: 24px;">
-            <div class="slide img-text">
-              <p class="txt">从图中我们可以看出：
-                <span>原型继承链、</span>
-                <span>属性访问的遍历过程</span>
-              </p>
-              <img class="img" src="img/prototype1.jpg" alt="prototype extend relation" />
-            </div>
-          </td>
-        </tr>
-      </table>
-    </li>
-  </ol>
-</section>
-<section class="slide">
-  <h3 class="m-v16">通过刚才的Demo和图，我们可以看出原型继承的优点</h3>
-  <ul >
-    <li class="slide">所有的实例都共享prototype对象</li>
-    <li class="slide">可以在运行时期动态增加属性</li>
-  </ul>
-</section>
-<section class="slide opacity-same">
-  <ol>
-    <li style="visibility: hidden; height: 0px;">&nbsp;</li>
-    <li style="visibility: hidden; height: 0px;">&nbsp;</li>
-    <li style="visibility: hidden; height: 0px;">&nbsp;</li>
-    <li class="">
-      <h3>YUI的extend函数实现：</h3>
-      <p class="code-wrap">
-        <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">var extend = function(subclass, superclass) {
-          var f = function() {};
-          //f拥有superclass的所有对象属性
-          f.prototype = superclass.prototype;
-          //subclass为f的一个实例对象，且拥有superclass的所有属性
-          subclass.prototype = new f();
-          //给subclass定义一个constructor 的属性
-          subclass.prototype.constructor = subclass;
-          //给subclass定义一个superclass 的属性
-          subclass.superclass = superclass.prototype;
-          //如果父类superclass.prototype.constructor没有被自定义，则自定义
-          if (superclass.prototype.constructor == Object.prototype.constructor) {
-          superclass.prototype.constructor = superclass;
-          }
-          };
-        </textarea>
-      </p>
-    </li>
-  </ol>
-</section>
-<section class="slide">
-  <h4 class="m-v16">使用YUI的extend函数demo</h4>
-  <ul>
-    <li class="slide">
-      <p class="code-wrap">
-        <textarea name="code" class="code yuiExtend" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
-          var A = function(){};
-          A.prototype.propertyA = 'propertyA';
-
-          var B = function(){};
-          extend(B, A);
-          B.prototype.propertyB = 'propertyB';
-
-          var C = function(){};
-          extend(C, B);
-
-          // demo
-          var c = new C();
-          console.log('c.propertyA: ', c.propertyA);
-          console.log('c.propertyB: ', c.propertyB);
-        </textarea>
-      </p>
-      <script type="codemirror" data-selector=".yuiExtendDemo">
-        var extend = function(subclass, superclass) {
-        var f = function() {};
-        //f拥有superclass的所有对象属性
-        f.prototype = superclass.prototype;
-        //subclass为f的一个实例对象，且拥有superclass的所有属性
-        subclass.prototype = new f();
-        //给subclass定义一个constructor 的属性
-        subclass.prototype.constructor = subclass;
-        //给subclass定义一个superclass 的属性
-        subclass.superclass = superclass.prototype;
-        //如果父类superclass.prototype.constructor没有被自定义，则自定义
-        if (superclass.prototype.constructor == Object.prototype.constructor) {
-        superclass.prototype.constructor = superclass;
-        }
-        };
-
-        var A = function(){};
-        A.prototype.propertyA = 'propertyA';
-
-        var B = function(){};
-        extend(B, A);
-        B.prototype.propertyB = 'propertyB';
-
-        var C = function(){};
-        extend(C, B);
-      </script>
-  </li>
-  </ul>
-</section>
-<section class="slide">
-  <h2 class="m-v16">顺便讨论下：与对象有关的几个操作符和方法</h2>
-  <ul>
-    <li class="slide">
-      <h3>The For In loop</h3>
-      <p>是指查找对象属性时遍历原型链上的所有属性，直到Object.prototype。</p>
-      <p class="code-wrap">
-        <textarea name="code" class="code yuiExtendDemo" theme="" mode="javascript" style="display: none;" runnable="true">//接着前一个YUI的extend的demo代码
-var c = new C();
-c.propertyC = 'propertyC';
-for(var p in c){
-  console.log(p, '' + c[p]);
-}
-        </textarea>
-      </p>
-      <p class="slide">用法建议：一般我们会与hasOwnProperty一起使用，过滤掉原生链上的属性。</p>
-    </li>
-  </ul>
-</section>
-<section class="slide">
-  <ul>
-    <li>
-      <h3><strong>hasOwnProperty</strong> method</h3>
-      <p>该方法是JavaScript中唯一一个处理属性但是不需要查找原型链的方法</p>
-      <p class="slide code-wrap">
-        <textarea name="code" class="code yuiExtendDemo" theme="" mode="javascript" style="display: none;" runnable="true">
-//接着前一个YUI的extend的demo代码
-var c = new C();
-c.propertyC = 'propertyC';
-for(var p in c){
-  if(c.hasOwnProperty(p)){
-    console.log(p, '' + c[p]);
-  }
-}
-        </textarea>
-      </p>
-      <p class="slide">常见用法：会与 <strong>For In</strong>循环一起使用，减少遍历对象原生链的性能消耗。</p>
-    </li>
-  </ul>
-</section>
-<!--delete 操作-->
 <section class="slide opacity-same">
   <ul>
     <li>
-      <h3><strong>Ｄelete</strong>操作符</h3>
-      <p class="slide">可以用于删除对象的属性</p>
-      <div class="slide code-wrap">
-        <textarea name="code" class="code yuiExtendDemo" theme="" mode="javascript" style="display: none;" runnable="true">//接着前一个YUI的extend的demo代码
-var c = new C();
-c.propertyC = 'propertyC';
-c.propertyA = null;
-delete c.propertyB;  // 只能delete对象自身的属性，不能删除原生链上的属性
-delete c.propertyC;
-for(var p in c){
-  console.log(p, '' + c[p]);
-}
-        </textarea>
+      <h3>开始理解transition各个属性子项</h3>
+      <style type="text/css">
+        .example1{
+          width: 100%;
+          height:40px;
+          background: blue;
+          -webkit-transition: background-color 2s linear 0s;
+          -moz-transition:    background-color 2s linear 0s;
+          -o-transition:      background-color 2s linear 0s;
+          transition:         background-color 2s linear 0s;
+        }
+        .example1:hover {
+          background-color: green;
+        }
+      </style>
+      <div class="bs-docs-example">
+        <div class="example1">hover me and look at the background color.</div>
       </div>
-      <p class="slide m-v16">常见用法：防止内存泄露，特别在ie下。</p>
     </li>
   </ul>
 </section>
 
-<!--function 函数-->
-<section class="slide">
-  <h2>function 函数</h2>
-  <div class="slide">
-    <p>有以下三种定义方式：</p>
-    <p class="code-wrap">
-    <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="">function aaa() {};// 方式1: 定义变量
-var bbb = function();     //方式2: 先声明变量，后赋值
-var ccc = new Function(); //方式3: 不提倡，1) 使用字符串函数体，不直观;2)性能差;
-    </textarea>
-    </p>
-  </div>
-  <div class="slide">
-    <h3>那么，方式一和方式二有什么不同呢？</h3>
-    <div class="slide">
-    <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">//方式1:
-console.log(aaa); // 'function'，因为foo在代码运行前已经被创建
-function aaa() {}
+<!-- 2D transform -->
+<section class="slide opacity-same">
+  <h2>transforms 变形</h2>
+  <p class="slide">使用过photoshop的人应该知道里面的Ctrl+T自由变换, transform也是同样效果。它可作用于内联(inline)元素和块级(block)元素。功能包含：rotate旋转，skew拉伸，scale压缩，translate偏移。</p>
+  <ul>
+    <li>语法: transform-function [transform-function]* | none  （默认值为 none）</li>
+  </ul>
+  <p class="slide">我们可以看出：所谓的transforms变形就是由多个transform-function组成，即rotate旋转，skew拉伸，scale压缩，translate偏移等变形功能组成。 <span class="slide">当然变形会2D transform-function 和 3D transform-function</span></p>
+  <p class="slide">我们先看下，最常见的四个2D transform-function变形</p>
+  <ul>
+    <li class="slide">
+      <h3>rotate旋转</h3>
+      <p>允许你通过传递一个度数值来转动一个对象；</p>
+      <div class="bs-docs-example">
+        <div class="example-transform example-transform0">hover me to Rotate + 360度</div>
+      </div>
+    </li>
+    <li class="slide">
+      <h3>skew拉伸</h3>
+      <p>允许你通过传递一个度数值来拉伸一个对象；</p>
+      <div class="bs-docs-example">
+        <div class="example-transform example-transform1">hover me to  拉伸我 +180度</div>
+      </div>
+    </li>
+  </ul>
+</section>
+<section class="slide opacity-same">
+  <ul>
+    <li>
+      <h3>scale压缩</h3>
+      <p>允许你通过传递一个(x%, y%)值来压缩一个对象；</p>
+      <div class="bs-docs-example">
+        <div class="example-transform example-transform2"> hover me to 压缩 (1, 0.5) </div>
+      </div>
+    </li>
+    <li class="slide">
+      <h3>translate偏移</h3>
+      <p>允许你通过传递一个(x, y)来偏移一个对象；</p>
+      <div class="bs-docs-example">
+        <div class="example-transform example-transform3"> hover me to 偏移(10px, 20px;)</div>
+      </div>
+    </li>
+    <p class="slide">理解translate偏移，就得知道2D的坐标系： </p>
 
-// 方式2:
-console.log(bbb); // 'undefined'
-var bbb = function() {};
-      </textarea>
-    </p>
+    <p class="slide"><img src="img/css3-animation/coord_in_R2.png" alt=""> <br> 注意：</p>
+  </ul>
+</section>
+
+<section class="slide opacity-same">
+  <h2>transform-origin 变形原点</h2>
+  <p class="slide">使当前元素围绕着设置的原点变形或旋转，该属性只有在设置了transform属性的时候起作用。</p>
+  <p class="slide"><strong>最多</strong>可设置原点(x, y, z)三个方向值，默认值为： <strong>50% 50% 0</strong>。 <img src="img/css3-animation/css-transforms-origin.png" alt=""></p>
+  <ul class="slide">
+    <li>X轴的可选值有:  length | percentage | left/right/center</li>
+    <li>Y轴的可选值有:  length | percentage | top/bottom/center</li>
+    <li>Z轴的可选值有:  length | percentage </li>
+  </ul>
+  <ul>
+    <li class="slide">
+      <h3>设置变形原点（right bottom）后的旋转 </h3>
+      <div class="bs-docs-example">
+        <div class="example-transform example-transform-origin example-transform-origin0">hover me to Rotate + 360度</div>
+      </div>
+    </li>
+    <li class="slide">
+      <h3>设置变形原点（right bottom）后的拉伸</h3>
+      <div class="bs-docs-example">
+        <div class="example-transform example-transform-origin example-transform-origin1">hover me to  拉伸我 +180度</div>
+      </div>
+    </li>
+  </ul>
+</section>
+<section class="slide opacity-same">
+  <ul>
+    <li class="">
+      <h3>设置变形原点（right bottom）后的压缩 </h3>
+      <div class="bs-docs-example">
+        <div class="example-transform example-transform-origin example-transform-origin2">hover me to Rotate + 360度</div>
+      </div>
+    </li>
+    <li class="slide">
+      <h3>设置变形原点（right bottom）后的偏移</h3>
+      <div class="bs-docs-example">
+        <div class="example-transform example-transform-origin example-transform-origin3">hover me to  拉伸我 +180度</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section class="slide opacity-same">
+  <ul>
+    <li>
+      <h3>Matrix 矩阵</h3>
+      <p class="slide">哈哈，请相信我，当你看到这里时，你可以把之前的四个transform-function忘记了，因为Matrix()是他们的基础实现。理解了Matrix()才是真正王道。</p>
+      <p class="slide">CSS3中的矩阵指的是一个方法，书写为matrix()和matrix3d(), 前者是元素2D平面的移动变换(transform)，后者则是3D变换。2D变换矩阵为3*3, 如上面矩阵示意图；3D变换则是4*4的矩阵。我们这里先介绍2D matrix()</p>
+      <p class="slide">之前说了，其实无论是旋转还是拉伸什么的，本质上都是应用的matrix()方法实现的（修改matrix()方法固定几个值），只是类似于transform:rotate这种表现形式，我们更容易理解，记忆与上手。</p>
+      <p class="slide">语法：matrix(a, b, c, d, e, f) 对应的矩阵如下： <br> <img src="img/css3-animation/css-transforms-matrix3.gif" alt=""></p>
+      <div class="bs-docs-example slide">
+        <div class="example-transform example-transform2"> hover me to 压缩 (1, 0.5) </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+ <!--3d cube-->
+<section class="slide opacity-same">
+  <h2>3D transform</h2>
+  <p class="slide">我们之前介绍了2D transform,现在怎么设置 3D transform.</p>
+  <h3 class="slide">transform-style</h3>
+  <p class="slide">通过该属性来决定指定元素的子节点是在2D还是3D坐标系中。</p>
+  <p class="slide">语法: flat | preserve-3d 。 默认值为 flat。 <br> <img src="img/css3-animation/3d_axes.jpg" alt="3D 坐标系" /> </p>
+  <p class="slide">之前我们看了四种2D transform-function变形，现在我们再看看3D的transform-function变形</p>
+</section>
+<section class="slide opacity-same">
+  <h3>3D的transform-function</h3>
+  <ul>
+    <li><h4>matrix()</h4></li>
+  </ul>
+</section>
+<section class="slide opacity-same">
+  <div class="threeD-animation-example">
+    <div style="" class="cube">
+      <div class="face front" >
+        1</div>
+      <div class="face back">
+        2</div>
+      <div class="face right">
+        3</div>
+      <div class="face left">
+        4</div>
+      <div class="face top">
+        5</div>
+      <div class="face bottom">
+        6</div>
     </div>
-    <p class="slide">所以我们要：变量被初始化之后使用变量</p>
-    <h3 class="slide">那么，我们会想: 'js引擎的对函数的解析过程'是怎么样的呢？</h3>
   </div>
+</section>
 
+<section class="slide opacity-same">
+  perspective(透视)：该属性会设置查看者的位置，并将可视内容映射到一个视锥上，继而投影到一个 2D 视平面上。如果不指定透视，则 Z 空间中的所有点将平铺到同一个 2D 视平面中，并且变换结果中将不存在景深概念。简单一点理解就是，perspective的值模拟的是用户观看动画时与动画中心面的焦距，值越小，看到的效果越明显()，越大，动画效果越不明显。当perspective为0的时候，感觉就像是你的眼睛紧贴着动画中心面看到的效果(看到的是平面动画)
+  可以调整镜头与平面位置：
+  a) perspective属性设置镜头到元素平面的距离。所有元素都是放置在z=0的平面上。比如perspective(300px)表示，镜头距离元素表面的位置是300像素。
+  b) perspective-origin属性规定了镜头在平面上的位置。默认是放在元素的中心。
 </section>
 <section class="slide opacity-same">
-  <h3>js引擎解析过程</h3>
-  <div class="slide">
-    js作为一个解析型的语言来说：语法检查->  运行期第一步“预解析” -> 运行期第二步“边解释边执行”执行期。而整个过程如下：
-    <ol class="slide">
-      <li>读入第一个代码段（js执行引擎并非一行一行地执行程序，而是一段一段地分析执行的）</li>
-      <li>做词法分析和语法分析，有错则报语法错误（比如括号不匹配等），并跳转到步骤5</li>
-      <li>对【var】变量和【function】定义做“预解析“（永远不会报错的，因为只解析正确的声明）</li>
-      <li>执行代码段，有错则报错（比如变量未定义）</li>
-      <li>如果还有下一个代码段，则读入下一个代码段，重复步骤2 </li>
-      <li>结束</li>
-    </ol>
-  </div>
-  <p class="code-wrap slide">
-    <textarea name="code" class="code" theme="" mode="text/html" style="display: none;" runnable=""><!DOCTYPE html>
-<html>
-<head></head>
-<body>
-<script type="text/javascript">console.log('script1');</script>
-<script type="text/javascript">
-  console.log('script2.1');
-  console.log(objectNone.none);
-  console.log('script2.2');
-</script>
-<script type="text/javascript">console.log('script3');</script>
-</body>
-</html>
-    </textarea>
-  </p>
+  <a class="slide" href="http://ie.microsoft.com/testdrive/graphics/hands-on-css3/hands-on_3d-transforms.htm">3D Transforms在线实时测试demo</a>
 </section>
 
-<!--this工作原理-->
-<section class="slide opacity-trasition">
-  <h2>
-    this工作原理
-  </h2>
-  <div class="slide" id="thisDemo">
-    <h3>先看一个demo，看看大家对this的理解：</h3>
-    <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-var company = {};
-company.method = function() {
-  function setCompany() {
-  this.name = "snda";
-  }
-  setCompany();
-};
-company.method();
-console.log(company.name);
-      </textarea>
-    </p>
-    <p class="slide">大家答案正确嘛？ <span class="slide">即使没答对也没关系，看了后面的分析就知道答案原因了</span></p>
-  </div>
-</section>
-<section class="slide">
-  <h3 class="m-v16">我们看看哪些地方会用到'this'关键词：</h3>
-  <ul>
-    <li class="slide">全局范围（this引用的是window对象）</li>
-    <li class="slide">function内部, 如：fun(){}</li>
-    <li class="slide">对象调用自己的方法（object.methodName()）</li>
-    <li class="slide">实例化函数（new Fun()）</li>
-    <li class="slide">显性的指定this（call/apply）</li>
-  </ul>
-  <div class="slide">
-    <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="">
-this.setTimeout(); // this引用的是window对象
-// function内部: this引用的是window对象
-function Company(){
-this.company = 'snda';
-}
-Company();
+<!--Animated CSS3 cube using 3D transforms-->
+<section class="slide opacity-same">
+  <h2>硬件加速</h2>
 
-// 对象调用自己的方法
-var obj = {};
-obj.Company = Company;
-obj.Company(); // 此时，this引用的是obj对象
-
-// 实例化函数
-var ref = new Company(); // 此时，this引用的是ref对象
-
-// call/apply: 显性的指定this
-var other = {department:'sysdev'};
-Company.call(other, 1,2,3); // 此时，this引用的是other对象
-Company.apply(other, [1,2,3]); // 此时，this引用的是other对象
-      </textarea>
-    </p>
-  </div>
-  <p class="slide">现在，我们返回理解下 <a href="#thisDemo">之前的demo</a>,就变得很简单啦！</p>
-</section>
-<section class="slide">
-  <h3>
-    我们再看看一些特殊的demos
-  </h3>
-  <div class="slide">
-    <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-var company = {};
-company.name = "snda";
-company.method = function() {
-  console.log('this.company: ', this.company);
-};
-// demo
-var method = company.method;
-method();
-      </textarea>
-    </p>
-  </div>
-  <p class="slide">demo 展示了把对象的方法赋值给一个局部变量的 this 转变过程。</p>
-  <div class="slide">
-    <p class="code-wrap">
-      <textarea name="code" class="code extendDemoCode" theme="" mode="javascript" style="display: none;" runnable="true">// 之前我们定义了extend的YUI版函数
-var A = function(){};
-A.prototype = {
-  propertyA: 'propertyA',
-  getProperty: function(){
-    return this.propertyA;
-  }
-};
-
-var B = function(){};
-extend(B, A);
-B.prototype.propertyB = 'propertyB';
-
-// demo
-var b = new B();
-console.log(b.getProperty());      // 这里的this 指向的是 b;
-      </textarea>
-    </p>
-  </div>
-  <p class="slide">demo 展示了一个有继承关系的父类方法中的 this 转变过程。</p>
 </section>
 
-<!--Closures 闭包-->
-<section class="slide">
-  <h2>Closures 闭包</h2>
-  <h3>先看一个demo，看看大家对闭包的理解：</h3>
-  <div class="slide">
-    <p class="code-wrap">
-      <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-        var testFun = function(num){
-        return function(){
-        console.log(num);
-        };
-        }
 
-        var fun1 = testFun(0);
-        var fun2 = testFun(1);
-        fun1();
-        fun2();
-      </textarea>
-    </p>
-  </div>
-</section>
-<section class="slide opacity-trasition">
-  <h3 class="">什么是闭包？</h3>
-  <p class="slide">有人说闭包就是一个函数！对嘛？ <span class="slide">函数是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数</span> </p>
-  <div class="slide">
-    <p><strong>总结一下：</strong></p>
-    <ul>
-      <li class="slide">是javascript里一个重要特性。</li>
-      <li class="slide">有了它，js就能从一个作用域(scope)访问到<strong>外围</strong>的作用域的变量，形成了一个作用域链</li>
-      <li class="slide">而函数是 JavaScript 中唯一拥有自身作用域的结构的expression</li>
-    </ul>
-  </div>
-</section>
-<section class="slide">
-  <h3>我们先讨论一个最简单的全局function的chain scope情景</h3>
-  <p class="slide code-wrap">
-    <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true">
-      var testFun = function(num){
-      return function(){
-      console.log(num);
-      };
-      };
-
-      var fun1 = testFun(0);
-      fun1();
-    </textarea>
-  </p>
-  <p class="slide">答案很简单，但我们从js引擎的整个解析情景图来分析下( <span style="color: red">注意每张图中变化部分是用红色标出的</span>)</p>
-</section>
-<section class="slide">
-  <h3 class="m-v16">首先看 <strong>js引擎的预解析期</strong></h3>
-  <img src="img/closure1-1.jpg" alt="closure1 之js引擎的预解析期">
-</section>
-<section class="slide">
-  <h3 class="m-v16">然后看 <strong>js引擎的运行期-运行到testFun函数</strong></h3>
-  <img src="img/closure1-2.jpg" alt="closure1 之js引擎的运行期-运行到testFun函数">
-</section>
-<section class="slide">
-  <h3 class="m-v16">首先看 <strong>js引擎的运行期-运行到匿名函数</strong></h3>
-  <img src="img/closure1-3.jpg" alt="closure1 之js引擎的运行期-运行到匿名函数">
-  <p class="slide">这时在执行fun1()中，通过遍历scope链，来显示num变量，结果显而易见。</p>
-  <p class="slide">当fun1运行完后，删除fun1调用对象</p>
-</section>
-<section class="slide opacity-same opacity-trasition">
-  <p class="m-v16">现在我们再看看最初的demo： <span class="slide">同理画出js解析阶段的情景图</span></p>
-  <h3 class="slide m-v16">略过 <strong>js引擎的预解析期</strong></h3>
-  <h3 class="slide m-v16">进入 <strong>js引擎的运行期-运行到testFun(0)</strong></h3>
-  <img class="slide" src="img/closure2-1.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(0)">
-</section>
-<section class="slide opacity-same opacity-trasition">
-  <h3 class="m-v16">进入 <strong>js引擎的运行期-运行到testFun(1)</strong></h3>
-  <img class="slide" src="img/closure2-2.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(1)">
-</section>
-<section class="slide opacity-same opacity-trasition">
-  <h3 class="m-v16">简化下：去掉fun1定义及call stack，<strong>只关注fun2定义，及call stack-1</strong></h3>
-  <img class="slide" src="img/closure2-3.jpg" alt="closure2 之js引擎的运行期-第一次运行到testFun(1)- 去掉fun1定义及call stack">
-</section>
-<section class="slide opacity-same opacity-trasition">
-  <h3 class="m-v16">进入 <strong>js引擎的运行期-运行fun1()</strong></h3>
-  <img class="slide" src="img/closure2-4.jpg" alt="closure2 之js引擎的运行期-运行fun1()">
-  <p class="slide">这时在执行fun1()中，通过遍历scope链，来显示num变量，结果为0。</p>
-  <p class="slide">当fun1运行完后，删除fun1调用对象</p>
-</section>
-<section class="slide">
-  <h3>
-    'Closure'更多Demo思考？
-  </h3>
-  <p class="code-wrap">
-    <textarea name="code" class="code" theme="" mode="javascript" style="display: none;" runnable="true"> // Closures Inside Loops
-      var arr = [];
-      for(var i = 0; i < 3; i++) {
-      arr.push(function(){
-      console.log('i: ',i);
-      })
-      };
-
-      for(var fun in arr){
-      arr[fun]();
-      }
-    </textarea>
-  </p>
-</section>
 
 <!--reference-->
-<section class="slide">
+<section class="slide opacity-same">
   <h2>参考文章：</h2>
   <ul>
-    <li><a href="http://product.dangdang.com/product.aspx?product_id=22628333">《JavaScript高级程序设计》(Nicholas C. Zakas 著作)</a></li>
-    <li><a href="http://www.cnblogs.com/fool/archive/2010/10/07/1845253.html">深刻理解undefined和null</a></li>
-    <li><a href="http://11heavens.com/falsy-and-truthy-in-javascript">Truthy and falsy in JavaScript</a></li>
-    <li><a href="http://jibbering.com/faq/notes/type-conversion/#tcBool">type-conversion</a></li>
-    <li><a href="http://webreflection.blogspot.com/2010/10/javascript-coercion-demystified.html">JavaScript Coercion Demystified</a></li>
-    <li><a href="http://bonsaiden.github.com/JavaScript-Garden/#function.this">JavaScript Garden</a></li>
-    <li><a href="http://www.html5jscss.com/js-data-scope-52.html" target="_blank">JavaScript欲速则不达—通过解析过程来了解作用域</a></li>
-    <li><a href="http://msdn.microsoft.com/en-us/library/ie/6974wx4d(v=vs.94).aspx">msdn javascript doc</a></li>
+    <li><a href="http://www.w3.org/TR/css3-transitions/">w3c transitions</a></li>
+    <li><a href="http://www.zhangxinxu.com/wordpress/?p=1268">CSS3 Transitions, Transforms和Animation使用简介与应用展示</a></li>
+    <li><a href="http://ie.microsoft.com/testdrive/graphics/hands-on-css3/hands-on_3d-transforms.htm">hands on 3d-transforms</a></li>
+    <li><a href="http://www.paulrhayes.com/2009-07/animated-css3-cube-interface-using-3d-transforms/"> 3D transforms</a></li>
+    <li><a href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/"> 3D transforms</a></li>
+    <li><a href="http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/">matrix-矩阵</a></li>
+    http://www.webkit.org/blog-files/3d-transforms/perspective-by-example.html
+
   </ul>
 </section>
-<section class="slide">
+<section class="slide opacity-same">
   <h1>
     The End!  Thank you ~
   </h1>
 </section>
 
 <!--bak-->
-<section class="slide">
+<section class="slide opacity-same">
   <h1>
     Next For backup
   </h1>
 </section>
-<section class="slide">
+<section class="slide opacity-same">
   <h2>chrome mac 快捷键</h2>
 
   <ul>
@@ -1153,9 +402,7 @@ console.log(b.getProperty());      // 这里的this 指向的是 b;
 <!-- End extension snippets. -->
 
 
-<!-- Required JS files. -->
-<script src="deck.js/jquery-1.7.2.min.js"></script>
-<script src="deck.js/core/deck.core.js"></script>
+
 
 <!-- Extension JS files. Add or remove as needed. -->
 <script src="deck.js/core/deck.core.js"></script>

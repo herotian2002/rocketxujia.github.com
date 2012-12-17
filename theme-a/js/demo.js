@@ -51,7 +51,7 @@ function colorSwitcher() {
 jQuery(document).ready(function($) {
 
 	// on page load
-	colorSwitcher();
+	//colorSwitcher();
 	
 	// if screen size changed, see if controls can now be shown
 	$(window).resize(function() {
