@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
 	<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
 	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
-	<link rel="stylesheet" href="deck.js/extensions/scale/deck.scale.css">
+	<!--<link rel="stylesheet" href="deck.js/extensions/scale/deck.scale.css">-->
 
     <!--pointer-->
     <link rel="stylesheet" href="deck.js/extensions/pointer.js/deck.pointer.css">
@@ -97,7 +97,7 @@
       var $box = $("#unGalleryContainer");
       var pics = ['<h5 class="title">CSS3超酷美女Gigi图片墙</h5>'];
       for (var i = 1; i <= 20; i += 1) {
-        var top = parseInt(500 * Math.random()), left=parseInt(960 * Math.random()), transform = 'transform' + top%10;
+        var top = parseInt(500 * Math.random()), left=parseInt(960 * Math.random())-100, transform = 'transform' + top%10;
         pics.push( '<a href="#" class="pic ' + transform + '" title="My Love Gigi ' + i + '" style="top:'+ top + 'px; left:' + left + 'px;"><img style="min-height:100px;" src="img/gigi/' + i + '.jpg" /></a>');
       }
       $box.html( pics.join('') );
