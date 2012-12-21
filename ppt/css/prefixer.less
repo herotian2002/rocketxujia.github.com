@@ -349,9 +349,30 @@
 }
 
 .transform-style(@args:flat){
-  -webkit-perspective: @args;
-  -moz-perspective: @args;
-  -o-perspective: @args;
-  perspective: @args;
+  -webkit-transform-style: @args;
+  -moz-transform-style: @args;
+  -o-transform-style: @args;
+  transform-style: @args;
 }
+
+.backface-visibility(@args:hidden){
+  -webkit-backface-visibility: @args;
+  -moz-backface-visibility: @args;
+  -o-backface-visibility: @args;
+  backface-visibility: @args;
+}
+
+
+
+
+//
+.prefixPropery(@property, @args){
+  -webkit-backface-visibility: @args;
+  -moz-backface-visibility: @args;
+  -o-backface-visibility: @args;
+  backface-visibility: @args;
+}
+
+
+
 

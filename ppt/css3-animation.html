@@ -6,10 +6,10 @@
 	<meta name="viewport" content="width=1024, user-scalable=no">
 
 	<title>Your deck.js Presentation</title>
-	
+
 	<!-- Required stylesheet -->
 	<link rel="stylesheet" href="deck.js/core/deck.core.css">
-	
+
 	<!-- Extension CSS files go here. Remove or add as needed. -->
 	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
 	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
@@ -24,11 +24,11 @@
 
     <!-- include code mirror default css and the theme you want. -->
     <link rel="stylesheet" href="deck.js/extensions/codemirror/deck.codemirror.css">
-    <link rel="stylesheet" href="deck.js/extensions/codemirror/themes/default.css">
+    <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/default.css">-->
     <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/cobalt.css">-->
     <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/elegant.css">-->
     <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/neat.css">-->
-    <!--<link rel="stylesheet" href="deck.js/extensions/codemirror/themes/night.css">-->
+    <link rel="stylesheet" href="deck.js/extensions/codemirror/themes/night.css">
 
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
 	<link rel="stylesheet" href="deck.js/themes/style/web-2.0.css">
@@ -38,8 +38,8 @@
 	<!--<link rel="stylesheet" href="deck.js/themes/transition/cube.css">-->
 	<!--<link rel="stylesheet" href="deck.js/themes/transition/fade.css">-->
 	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
-  
-  
+
+
 
   <!--sample-->
   <link rel="stylesheet" href="css/css3-animation.css">
@@ -78,10 +78,120 @@
 <section class="slide opacity-same" id="menu">
     <h2>content</h2>
     <ul>
-        <li>介绍css3动画属性</li>
-
+      <li>先看几个动画demo养养眼</li>
+      <li>css3动画兼容性</li>
+      <li>Transition</li>
+      <li>各种transform（2D/3D）</li>
+      <li>animation</li>
     </ul>
 </section>
+
+
+<section class="slide ">
+  <div id="unGalleryContainer" class="unGalleryContainer">
+
+  </div>
+
+  <script type="text/javascript">
+    !function(){
+      var $box = $("#unGalleryContainer");
+      var pics = ['<h5 class="title">CSS3超酷美女Gigi图片墙</h5>'];
+      for (var i = 1; i <= 20; i += 1) {
+        var top = parseInt(500 * Math.random()), left=parseInt(960 * Math.random()), transform = 'transform' + top%10;
+        pics.push( '<a href="#" class="pic ' + transform + '" title="My Love Gigi ' + i + '" style="top:'+ top + 'px; left:' + left + 'px;"><img style="min-height:100px;" src="img/gigi/' + i + '.jpg" /></a>');
+      }
+      $box.html( pics.join('') );
+    }();
+  </script>
+</section>
+<section class="slide">
+  <h2>照片墙 photo gallery</h2>
+  <div id="galleryContainer" class="galleryContainer">
+    <div class="item"  href="#" title="photo2"><img src="img/mm/mm1.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo4"><img src="img/mm/mm2.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo6"><img src="img/mm/mm3.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo8"><img src="img/mm/mm4.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo10"><img src="img/mm/mm5.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo12"><img src="img/mm/mm6.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo14"><img src="img/mm/mm7.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo16"><img src="img/mm/mm8.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo17"><img src="img/mm/mm9.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo18"><img src="img/mm/mm10.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo19"><img src="img/mm/mm11.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo20"><img src="img/mm/mm12.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo21"><img src="img/mm/mm13.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo22"><img src="img/mm/mm14.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+    <div class="item"  href="#" title="photo23"><img src="img/mm/mm15.jpg" alt="#"><img class="close" src="img/css3-animation/close.png" title="close this image"></div>
+  </div>
+</section>
+<section class="slide">
+  <h2>图片旋转木马3D效果</h2>
+  <p>点击任意图片浏览：</p>
+  <div class="slide-3d">
+    <div id="container" class="container float-clr"></div>
+  </div>
+  <script type="text/javascript">
+    !function() {
+      // CSS transform变换应用
+      var transform = function(element, value, key) {
+          key = key || "Transform";
+          ["Moz", "O", "Ms", "Webkit", ""].forEach(function(prefix) {
+            element.style[prefix + key] = value;
+          });
+
+          return element;
+        }
+      // 浏览器选择器API
+        , $ = function(selector) {
+          return document.querySelector(selector);
+        }, $$ = function(selector) {
+          return document.querySelectorAll(selector);
+        };
+
+      // 显示图片
+      var htmlPic = '', arrayPic = [1, 8, 3, 4, 6, 7, 10, 13, 15], rotate = 360 / arrayPic.length;
+
+      arrayPic.forEach(function(i) {
+        htmlPic = htmlPic + '<img id="piece'+ i +'" src="img/css3-animation/mm'+ i +'.jpg" class="piece" />';
+      });
+
+      // 元素
+      var eleStage = $("#stage"), eleContainer = $("#container"), indexPiece = 0;
+      // 元素
+      var elePics = $$(".piece"), transZ = 64 / Math.tan((rotate / 2 / 180) * Math.PI);
+
+      eleContainer.innerHTML = htmlPic;
+      eleContainer.addEventListener("click", function() {
+        transform(this, "rotateY("+ (-1 * rotate * ++indexPiece) +"deg)");
+      });
+
+      arrayPic.forEach(function(i, j) {
+        transform($("#piece" + i), "rotateY("+ j * rotate +"deg) translateZ("+ (transZ + 20) +"px)");
+      });
+    }();
+  </script>
+</section>
+<script src="js/jquery.masonry.js"></script>
+<script type="text/javascript">
+  //  初始化masonry
+  $('#galleryContainer').imagesLoaded(function () {
+    var $this = $(this), $photos = $this.find('.item');
+    $this.masonry({
+      itemSelector:'.item',
+      columnWidth: 190,
+      isResizable: false
+    });
+    $this.delegate('.item', 'click', function(e){
+      var $photo = $(this);
+      $photo.addClass('active');
+    });
+    $this.delegate('img.close', 'click', function(e){
+      var $close = $(this), $photo = $close.closest('.item');
+      $photo.removeClass('active');
+      return false;
+    });
+  });
+</script>
 
 <!--browser support 浏览器兼容性-->
 <section class="slide opacity-same">
@@ -101,7 +211,7 @@
 <section class="slide opacity-same opacity-same">
   <ul>
     <li >transition：过渡，表示动画的过程</li>
-    <li class="slide">transform：变形。</li>
+    <li class="slide">transform：变换。</li>
     <li class="slide">animation：动画</li>
     <li class="slide">Filter Effects：滤镜效果</li>
   </ul>
@@ -142,13 +252,13 @@
 
 <!-- 2D transform -->
 <section class="slide opacity-same">
-  <h2>transforms 变形</h2>
+  <h2>transforms 变换</h2>
   <p class="slide">使用过photoshop的人应该知道里面的Ctrl+T自由变换, transform也是同样效果。它可作用于内联(inline)元素和块级(block)元素。功能包含：rotate旋转，skew拉伸，scale压缩，translate偏移。</p>
   <ul>
     <li>语法: transform-function [transform-function]* | none  （默认值为 none）</li>
   </ul>
-  <p class="slide">我们可以看出：所谓的transforms变形就是由多个transform-function组成，即rotate旋转，skew拉伸，scale压缩，translate偏移等变形功能组成。 <span class="slide">当然变形会2D transform-function 和 3D transform-function</span></p>
-  <p class="slide">我们先看下，最常见的四个2D transform-function变形</p>
+  <p class="slide">我们可以看出：所谓的transforms变换就是由多个transform-function组成，即rotate旋转，skew拉伸，scale压缩，translate偏移等变换功能组成。 <span class="slide">当然变换会2D transform-function 和 3D transform-function</span></p>
+  <p class="slide">我们先看下，最常见的四个2D transform-function变换</p>
   <ul>
     <li class="slide">
       <h3>rotate旋转</h3>
@@ -189,8 +299,8 @@
 </section>
 
 <section class="slide opacity-same">
-  <h2>transform-origin 变形原点</h2>
-  <p class="slide">使当前元素围绕着设置的原点变形或旋转，该属性只有在设置了transform属性的时候起作用。</p>
+  <h2>transform-origin 变换原点</h2>
+  <p class="slide">使当前元素围绕着设置的原点变换或旋转，该属性只有在设置了transform属性的时候起作用。</p>
   <p class="slide"><strong>最多</strong>可设置原点(x, y, z)三个方向值，默认值为： <strong>50% 50% 0</strong>。 <img src="img/css3-animation/css-transforms-origin.png" alt=""></p>
   <ul class="slide">
     <li>X轴的可选值有:  length | percentage | left/right/center</li>
@@ -199,13 +309,13 @@
   </ul>
   <ul>
     <li class="slide">
-      <h3>设置变形原点（right bottom）后的旋转 </h3>
+      <h3>设置变换原点（right bottom）后的旋转 </h3>
       <div class="bs-docs-example">
         <div class="example-transform example-transform-origin example-transform-origin0">hover me to Rotate + 360度</div>
       </div>
     </li>
     <li class="slide">
-      <h3>设置变形原点（right bottom）后的拉伸</h3>
+      <h3>设置变换原点（right bottom）后的拉伸</h3>
       <div class="bs-docs-example">
         <div class="example-transform example-transform-origin example-transform-origin1">hover me to  拉伸我 +180度</div>
       </div>
@@ -215,13 +325,13 @@
 <section class="slide opacity-same">
   <ul>
     <li class="">
-      <h3>设置变形原点（right bottom）后的压缩 </h3>
+      <h3>设置变换原点（right bottom）后的压缩 </h3>
       <div class="bs-docs-example">
         <div class="example-transform example-transform-origin example-transform-origin2">hover me to Rotate + 360度</div>
       </div>
     </li>
     <li class="slide">
-      <h3>设置变形原点（right bottom）后的偏移</h3>
+      <h3>设置变换原点（right bottom）后的偏移</h3>
       <div class="bs-docs-example">
         <div class="example-transform example-transform-origin example-transform-origin3">hover me to  拉伸我 +180度</div>
       </div>
@@ -233,65 +343,431 @@
   <ul>
     <li>
       <h3>Matrix 矩阵</h3>
-      <p class="slide">哈哈，请相信我，当你看到这里时，你可以把之前的四个transform-function忘记了，因为Matrix()是他们的基础实现。理解了Matrix()才是真正王道。</p>
-      <p class="slide">CSS3中的矩阵指的是一个方法，书写为matrix()和matrix3d(), 前者是元素2D平面的移动变换(transform)，后者则是3D变换。2D变换矩阵为3*3, 如上面矩阵示意图；3D变换则是4*4的矩阵。我们这里先介绍2D matrix()</p>
-      <p class="slide">之前说了，其实无论是旋转还是拉伸什么的，本质上都是应用的matrix()方法实现的（修改matrix()方法固定几个值），只是类似于transform:rotate这种表现形式，我们更容易理解，记忆与上手。</p>
-      <p class="slide">语法：matrix(a, b, c, d, e, f) 对应的矩阵如下： <br> <img src="img/css3-animation/css-transforms-matrix3.gif" alt=""></p>
-      <div class="bs-docs-example slide">
-        <div class="example-transform example-transform2"> hover me to 压缩 (1, 0.5) </div>
-      </div>
+      <p class="slide">CSS3中的Matrix矩阵指的是一个方法，书写为matrix()和matrix3d(), 前者是2D平面的元素点变换(transform)，后者则是3D变换。2D变换矩阵为3*3, 我们这里先介绍2D matrix()</p>
+      <p class="slide">当你看到这里时，说明我们常用的动画变换你都已经知道了，但如果要深入的了解css3 transform,那就需要了解Matrix()，因为Matrix()是他们的基础实现。</p>
+      <p class="slide">有这样一个观点： 其实无论是旋转还是拉伸什么的，本质上都是应用的matrix()方法实现的（修改matrix()方法固定几个值），只是类似于transform:rotate这种表现形式，我们更容易理解，记忆与上手。</p>
+      <p class="slide">怎么理解这句话？</p>
+      <p class="slide">大家想想线性代数里有个概念：矩阵变换，公式如下： <br> <img src="img/css3-animation/MatrixMultiply.png" alt="矩阵乘法"></p>
+      <p class="slide">这个公式，就反映了：在2D坐标系下，只要有(a, b, c, d, e, f) 给定，一个(x, y)会变换成另个(x', y')。也可以看出任意的(x', y')总会有一个(a, b, c, d, e, f) 变换矩阵来对应。这就是2D坐标系上的矩阵变换过程。 </p>
+      <p class="slide">而现在我们就是要来看看使点进行变换的矩阵。我们可以看到css matrix的语法是：</p>
     </li>
+  </ul>
+</section>
+<section class="slide">
+  <h3 class="">语法：matrix(a, b, c, d, e, f)。 而对应的矩阵如下： <br> <img src="img/css3-animation/css-transforms-matrix3.gif" alt=""></h3>
+  <p class="slide">再使用矩阵乘法的原理，可推出之前的矩阵变换过程图亦为： <br> <img src="img/css3-animation/css-transforms-matrix5.gif" alt=""></p>
+  <p class="slide">
+    那ax+cy+e的意义是什么？ <br>
+    ax+cy+e为变换后的水平坐标，bx+dy+f表示变换后的垂直位置。
+  </p>
+  <p class="slide">现在我们再看看常见四种变换（rotate, skew, scale,translate）的矩阵变换表示?</p>
+</section>
+<section class="slide">
+  <h3>偏移(translate)的矩阵变换表示： </h3>
+  <p class="slide"><span>transform: matrix(1, 0, 0, 1, tx, ty); /* a=1, b=0, c=0, d=1, e=tx, f=ty */ </span> <br><img src="img/css3-animation/MatrixTranslate.png" alt=""></p>
+  <p class="slide">假设是(0, 0)，即x=0, y=0。
+    于是，变换后的x坐标就是ax+cy+e = 1*0+0*0+tx =tx, y坐标就是bx+dy+f = 0*0+1*0+ty =ty.</p>
+  <p class="slide">总结:
+    聪明的你可能以及意识到了，matrix表现偏移就是：transform: matrix(与我无关, 哪位, 怎么不去高考, 打麻将去吧, 水平偏移距离, 垂直偏移距离);</p>
+  <div class="bs-docs-example slide">
+    <div class="example-transform-matrix example-transform-matrix3"> hover me to 偏移(10px, 20px;)</div>
+  </div>
+</section>
+<section class="slide">
+  <h3>缩放(scale)的矩阵变换表示： </h3>
+  <p class="slide"><span>transform: matrix(sx, 0, 0, sy, 0, 0) </span> <br><img src="img/css3-animation/MatrixScale.png" alt=""></p>
+  <p class="slide">我们可以套用公式，就有： <br>
+    x' = ax+cy+e = sx*x+0*y+0 = sx*x; <br>
+    y' = bx+dy+f = 0*x+sy*y+0 = sy*y;</p>
+  <p class="slide">也就是matrix(sx, 0, 0, sy, 0, 0)，等同于scale(sx, sy);</p>
+  <div class="bs-docs-example slide">
+    <div class="example-transform-matrix example-transform-matrix2"> hover me to matrix( 0.5, 0, 0, 0.5, 0, 0)</div>
+  </div>
+</section>
+<section class="slide">
+  <h3>旋转(rotate)的矩阵变换表示： </h3>
+  <p class="slide"><span>matrix(cosθ,sinθ,-sinθ,cosθ,0,0); </span> <br><img src="img/css3-animation/MatrixRotate.png" alt=""></p>
+  <p class="slide">我们可以套用公式，就有： <br>
+    x' = x*cosθ-y*sinθ+0 = x*cosθ-y*sinθ <br>
+    y' = x*sinθ+y*cosθ+0 = x*sinθ+y*cosθ</p>
+  <p class="slide">也就是matrix(cosθ,sinθ,-sinθ,cosθ,0,0)，等同于transform:rotate(θdeg);;</p>
+  <div class="bs-docs-example slide">
+    <div class="example-transform-matrix example-transform-matrix0"> hover me to transform: matrix <br>(cos30,sin30,-sin30,cos30,0,0);</div>
+  </div>
+  <p class="slide">说句老实话，就旋转而言，rotate(θdeg)这种书写形式要比matrix简单多了，首先记忆简单，其次，无需计算。</p>
+</section>
+<section class="slide">
+  <h3>拉伸(skew)的矩阵变换表示： </h3>
+  <p class="slide"><span>matrix(1 tan(θy) tan(θx) 1 0 0); </span> <br><img src="img/css3-animation/MatrixRotate.png" alt=""></p>
+  <p class="slide">我们可以套用公式，就有： <br>
+    x' = x+y*tan(θx)+0 = x+y*tan(θx) <br>
+    y' = x*tan(θy)+y+0 = x*tan(θy)+y <br>
+    其中，θx表示x轴倾斜的角度，θy表示y轴，两者并无关联。</p>
+  <div class="bs-docs-example slide">
+    <p id="matrixDetail">目前属性值为：matrix(1,0,0,1,0,0)</p>
+    <p>x轴倾斜角度(0-89)：<input type="range" id="matrixSkewX" value="0" min="0" max="89" autocomplete="off" /></p>
+    <p>y轴倾斜角度(0-89)：<input type="range" id="matrixSkewY" value="0" min="0" max="89" autocomplete="off" /></p>
+    <div id="matrixBox" class="matrix_box"></div>
+  </div>
+  <script type="text/javascript">
+    (function() {
+      var $ = function(selector) { return document.querySelector(selector); };
+      var $css3Transform = function(element, value) {
+        var arrPriex = ["O", "Ms", "Moz", "Webkit", ""], length = arrPriex.length;
+        for (var i=0; i < length; i+=1) {  element.style[arrPriex[i] + "Transform"] = value;  }
+      };
+      var eleRangeX = $("#matrixSkewX"), eleRangeY = $("#matrixSkewY"),
+        eleDetail = $("#matrixDetail"), eleBox = $("#matrixBox");
+
+      if (eleDetail && eleRangeX && eleRangeY && eleBox) {
+        var arrRange = [eleRangeX, eleRangeY];
+        for (var start=0; start<2; start+=1) {
+          arrRange[start].addEventListener("change", function() {
+            var maxVal = this.getAttribute("max"), minVal = this.getAttribute("min"), value = this.value;
+            if (value - minVal < 0) {
+              value = minVal;
+              this.value = minVal;
+            }
+            if (value - maxVal > 0) {
+              value = maxVal;
+              this.value = maxVal;
+            }
+            var tanValY = Math.tan(eleRangeY.value * Math.PI / 180), tanValX = Math.tan(eleRangeX.value * Math.PI / 180);
+            var valTransform = 'matrix(1,'+ tanValY.toFixed(6) +','+ tanValX.toFixed(6) +',1,0,0)';
+            eleDetail.innerHTML = '目前属性值为：' + valTransform;
+            $css3Transform(eleBox, valTransform);
+          });
+        }
+      }
+    })();
+  </script>
+</section>
+<section class="slide">
+  <h3>matrix()作用</h3>
+  <p class="slide">我想有人会奇怪，既然CSS3 transform中提供了像skew, rotate, …效果，那还需要掌握和熟悉让人头大的矩阵方法干嘛呢？</p>
+  <p class="slide">确实，对于一般地交互应用，transform属性默认提供的些方法是足够了，但是，一些其他的效果，如果transform属性没有提供接口方法，那你又该怎么办呢？</p>
+  <p class="slide">比如我们需要实现轴对称变换(y=kx)</p>
+  <div class="bs-docs-example slide">
+    <style type="text/css">
+      .matrix_image { margin-top: 30px; position: relative; }
+      .matrix_image img {
+        vertical-align: bottom;
+        margin: 0;
+        -webkit-transition:all 0.5s ease-in-out;
+        -moz-transition:all 0.5s ease-in-out;
+        -o-transition:all 0.5s ease-in-out;
+        -ms-transition:all 0.5s ease-in-out;
+        transition:all 0.5s ease-in-out;
+      }
+      .matrix_line {
+        width: 150px;
+        height: 2px;
+        background-color: #000;
+        background-color: rgba(0,0,0,.6);
+        position: absolute;
+        left: 128px;
+        top: 95px;
+        z-index: 1;
+        -moz-transform-origin: top left;
+        -webkit-transform-origin: top left;
+        -o-transform-origin: top left;
+        transform-origin: top left;
+      }
+      .matrix_line:before {
+        content: " ";
+        width: 4px;
+        height: 4px;
+        border: 1px solid #000;
+        border-radius: 4px;
+        background-color: #fff;
+        opacity: .75;
+        position:absolute;
+        left: -2px;
+        top:-2px;
+      }
+      .matrix_line:after {
+        content: " ";
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+        border: 1px solid #000;
+        background-color: #34538b;
+        position:absolute;
+        right: -4px;
+        top:-4px;
+        cursor:move;
+      }
+      input.matrix_input {
+        width: 260px;
+        position: absolute;
+        left: 270px;
+        top: 105px;
+        font-size: 20px;
+      }
+    </style>
+    <p id="matrixDetail1">目前属性值为：matrix(1,0,0,1,0,0)</p>
+    <div class="matrix_image">
+      <div id="matrixLine" class="matrix_line"></div>
+      <input type="text" id="matrixInput" class="matrix_input" autocomplete="off" placeholder="输入角度确定对称轴" />
+      <img id="matrixImage" src="img/css3-animation/meinv.GIF" width="256" height="191" />
+    </div>
+    <script type="text/javascript">
+      (function() {
+        var $ = function(selector) {
+          return document.querySelector(selector);
+        };
+        var $css3Transform = function(element, value) {
+          var arrPriex = ["O", "Ms", "Moz", "Webkit", ""], length = arrPriex.length;
+          for (var i=0; i < length; i+=1) {
+            element.style[arrPriex[i] + "Transform"] = value;
+          }
+        };
+        var eleDetail = $("#matrixDetail1"), eleInput = $("#matrixInput"),
+          eleLine = $("#matrixLine"), eleImage = $("#matrixImage");
+
+        if (eleDetail && eleInput && eleImage) {
+          eleInput.addEventListener("change", function() {
+            var value = parseInt(this.value, 10);
+            if (value) {
+              $css3Transform(eleLine, "rotate("+ value +"deg)");
+              // 确认对称线
+              var k = Math.tan( -1 * value * Math.PI / 180),
+                ux = 1 / Math.sqrt(1 + k * k), uy = k / Math.sqrt(1 + k * k);
+
+              if (k > 1000000) {
+                ux = 0, uy = 1;
+              } else if (k < -1000000) {
+                ux = 0, uy = -1;
+              }
+
+              var valTransform = "matrix("+ (2*ux*ux-1).toFixed(6) +","+ (2*ux*uy).toFixed(6) +","+ (2*ux*uy).toFixed(6) +","+ (2*uy*uy-1).toFixed(6) +",0,0)";
+              eleDetail.innerHTML = '目前属性值为：' + valTransform;
+              $css3Transform(eleImage, valTransform);
+            } else {
+              this.value = "";
+            }
+          });
+        }
+      }
+      )();
+    </script>
+  </div>
+  <h3 class="slide">所以：</h3>
+  <ul class="slide">
+    <li>matrix矩阵是transform变换的基础，可以应付很多高端的效果，算是一种高级应用技巧</li>
   </ul>
 </section>
 
  <!--3d cube-->
 <section class="slide opacity-same">
   <h2>3D transform</h2>
-  <p class="slide">我们之前介绍了2D transform,现在怎么设置 3D transform.</p>
-  <h3 class="slide">transform-style</h3>
+  <p class="slide">我们之前介绍了2D transform,现在看怎么设置 3D transform.</p>
+  <h3 class="slide">transform-style 变换样式</h3>
   <p class="slide">通过该属性来决定指定元素的子节点是在2D还是3D坐标系中。</p>
-  <p class="slide">语法: flat | preserve-3d 。 默认值为 flat。 <br> <img src="img/css3-animation/3d_axes.jpg" alt="3D 坐标系" /> </p>
-  <p class="slide">之前我们看了四种2D transform-function变形，现在我们再看看3D的transform-function变形</p>
+  <p class="slide">语法: flat | preserve-3d 。 默认值为 flat。 <br> </p>
+  <h3 class="slide">backface-visibility 背后可见性</h3>
+  <p class="slide">通过该属性来决定指定元素的后面元素是否可见。</p>
+  <p class="slide">语法:  visible | hidden。 默认值为 visible。 <br> </p>
 </section>
-<section class="slide opacity-same">
-  <h3>3D的transform-function</h3>
+<section class="slide">
+  <h3 class="slide">perspective 透视/视角</h3>
+  <p class="slide">通过该属性可以决定元素是2D transform还是3D transform。</p>
+  <p class="slide">语法:  none | length 。 默认值为 none。 <br> </p>
+  <h3 class="slide">perspective-origin 透视/视角原点</h3>
+  <p class="slide">该属性可设置视角的起始点x/y平面所有位置，可理解人的视角眼睛。</p>
+  <p class="slide">语法: 有两个值，可选值为：percentage | length | left | center | right | top | bottom。  默认值为 。 <br> </p>
+  <p class="slide"><img src="img/css3-animation/3d_axes.jpg" alt=""> <br> 注意： Z轴的方向， y轴正数方向是向下的。</p>
+</section>
+<section class="slide">
+  <div class="bs-docs-example slide">
+    试试hover（ 正方体1： perspective 300px 变为 600px. <br> 正方体2： perspective-origin 150% 150%  变为 50% 50% ），了解perspective及perspective-origin对3D transform的影响：
+    <div class="float-clr">
+      <div class="threeD-animation-example">
+        <div class="cube cube-perspective-example1">
+          <div class="face front" >
+            1</div>
+          <div class="face back">
+            2</div>
+          <div class="face right">
+            3</div>
+          <div class="face left">
+            4</div>
+          <div class="face top">
+            5</div>
+          <div class="face bottom">
+            6</div>
+        </div>
+      </div>
+      <div class="threeD-animation-example">
+        <div class="cube cube-perspective-example2">
+          <div class="face front" >
+            1</div>
+          <div class="face back">
+            2</div>
+          <div class="face right">
+            3</div>
+          <div class="face left">
+            4</div>
+          <div class="face top">
+            5</div>
+          <div class="face bottom">
+            6</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="slide">结论：</h3>
   <ul>
-    <li><h4>matrix()</h4></li>
+    <li class="slide">perspective属性会设置查看者的位置，并将可视内容映射到一个视锥上，继而投影到一个 2D 视平面上。如果不指定透视，则 Z 空间中的所有点将平铺到同一个 2D 视平面中，并且变换结果中将不存在透视概念。 <br>
+      简单一点理解就是，perspective的值模拟的是用户观看动画时与动画中心面的焦距，值越小，看到的效果越明显()，越大，动画效果越不明显。 <br>
+      当perspective为0的时候，感觉就像是你的眼睛紧贴着动画中心面看到的效果(看到的是平面动画)</li>
+    <li class="slide">perspective-origin属性规定了镜头在平面上的位置。默认是放在元素的中心。</li>
   </ul>
 </section>
-<section class="slide opacity-same">
-  <div class="threeD-animation-example">
-    <div style="" class="cube">
-      <div class="face front" >
-        1</div>
-      <div class="face back">
-        2</div>
-      <div class="face right">
-        3</div>
-      <div class="face left">
-        4</div>
-      <div class="face top">
-        5</div>
-      <div class="face bottom">
-        6</div>
+<section class="slide opacity-same opacity-trasition">
+  <h3>3D transform-function 变换函数</h3>
+  <p class="slide">之前我们看了四种2D transform-function变换，现在我们再看看对应的四种3D的transform-function变换</p>
+  <h4 class="slide">Rotate 3d, rotateX, rotateY, rotateZ</h4>
+  <p class="slide">rotateX(deg), rotateY(deg), rotateZ(deg): 分别表示对X，Y, Z轴进行旋转。 <span class="slide">举现实生活中的例子：</span></p>
+  <p class="slide">邹凯的体操单杠运动是rotateX。 <img src="img/css3-animation/dangang.jpg" alt=""> <br> <img src="img/css3-animation/3d_axes.jpg" alt=""></p>
+</section>
+<section class="slide opacity-trasition">
+  <p class="">蔡依林姐姐的钢管舞是rotateY。 <img src="img/css3-animation/gangguan-jolin.jpg" alt=""></p>
+  <p class="slide">旋转飞刀的特技表演是rotateZ。<img src="img/css3-animation/feidao.jpg" alt=""></p>
+  <p class="slide">Rotate 3d(x, y, z, rotation angle) <span class="slide">:  设置对任意指定轴进行旋转。x, y, z指定轴(与transform-origin组成两点决定一条直线)，rotation angle表示旋转角度</span></p>
+</section>
+<section class="slide">
+  <div class="bs-docs-example">
+    <div class="float-clr">
+      <div class="Rotate3d-example">
+        <div class="axes un">
+          <div class="rotated">
+            <br><br><br><br>
+            Rotate me!
+          </div>
+        </div>
+        <br><br>
+        <p>rotate3d(1, 1, 0, 60deg)</p>
+      </div>
+      <div class="Rotate3d-example">
+        <div class="axes deux">
+          <div class="rotated">
+            <br><br><br><br>
+            Rotate me!
+          </div>
+        </div>
+        <br><br>
+        <p>rotate3d(1,-1, 1,60deg)</p>
+      </div>
     </div>
   </div>
 </section>
-
-<section class="slide opacity-same">
-  perspective(透视)：该属性会设置查看者的位置，并将可视内容映射到一个视锥上，继而投影到一个 2D 视平面上。如果不指定透视，则 Z 空间中的所有点将平铺到同一个 2D 视平面中，并且变换结果中将不存在景深概念。简单一点理解就是，perspective的值模拟的是用户观看动画时与动画中心面的焦距，值越小，看到的效果越明显()，越大，动画效果越不明显。当perspective为0的时候，感觉就像是你的眼睛紧贴着动画中心面看到的效果(看到的是平面动画)
-  可以调整镜头与平面位置：
-  a) perspective属性设置镜头到元素平面的距离。所有元素都是放置在z=0的平面上。比如perspective(300px)表示，镜头距离元素表面的位置是300像素。
-  b) perspective-origin属性规定了镜头在平面上的位置。默认是放在元素的中心。
+<section class="slide opacity-same opacity-trasition">
+  <h4 class="slide">再看看translate3d, translateX, translateY, translateZ</h4>
+  <p class="slide">translateX(x), translateY(y), translateZ(z): 分别表示对X，Y, Z轴方向偏移。 <span class="slide">看看demo效果：</span></p>
+  <div class="bs-docs-example slide">
+    <div class="float-clr">
+      <div class="axis3d translate3d-example">
+        <div class="axisX"></div>
+        <div class="axisY"></div>
+        <div class="axisZ"></div>
+        <span class="direX">+X</span>
+        <span class="direY">+Y</span>
+        <span class="direZ">+Z</span>
+        <div class="translate translateX">
+        </div>
+        <div class="text">
+          看看效果：.transform( translateX(50px) )
+        </div>
+      </div>
+      <div class="axis3d translate3d-example">
+        <div class="axisX"></div>
+        <div class="axisY"></div>
+        <div class="axisZ"></div>
+        <span class="direX">+X</span>
+        <span class="direY">+Y</span>
+        <span class="direZ">+Z</span>
+        <div class="translate translateY">
+        </div>
+        <div class="text">
+          看看效果：.transform( translateY(50px) )
+        </div>
+      </div>
+      <div class="axis3d translate3d-example">
+        <div class="axisX"></div>
+        <div class="axisY"></div>
+        <div class="axisZ"></div>
+        <span class="direX">+X</span>
+        <span class="direY">+Y</span>
+        <span class="direZ">+Z</span>
+        <div class="translate translateZ">
+        </div>
+        <div class="text">
+          看看效果：.transform( translateZ(50px) )
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="slide opacity-same">
-  <a class="slide" href="http://ie.microsoft.com/testdrive/graphics/hands-on-css3/hands-on_3d-transforms.htm">3D Transforms在线实时测试demo</a>
+<section class="slide">
+  <h4>translate3d</h4>
+  <p class="slide">语法：translate3d(tx, ty, tz)。 其中tx, ty, tz 分别表示对X，Y, Z轴方向偏移</p>
+  <div class="bs-docs-example slide">
+    <div class="float-clr">
+      <div class="axis3d">
+        <div class="axisX"></div>
+        <div class="axisY"></div>
+        <div class="axisZ"></div>
+        <span class="direX">+X</span>
+        <span class="direY">+Y</span>
+        <span class="direZ">+Z</span>
+        <div class="translate translate3d">
+        </div>
+      </div>
+      <div class="text">
+        看看效果：.transform( translate3d(50px, 50px, 100px) )
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slide">
+  <h4>scale3d</h4>
+  <p class="slide">语法：scale3d(sx, sy, sz)。 其中sx, sy, sz 分别表示对X，Y, Z轴方向缩放比例</p>
+  <div class="bs-docs-example slide">
+    <div class="float-clr">
+      <div class="axis3d">
+        <div class="axisX"></div>
+        <div class="axisY"></div>
+        <div class="axisZ"></div>
+        <span class="direX">+X</span>
+        <span class="direY">+Y</span>
+        <span class="direZ">+Z</span>
+        <div class="scale scale3d">
+        </div>
+      </div>
+      <div class="text">
+        看看效果：.transform( scale3d(1.5, 1.5, 1.5) )
+      </div>
+    </div>
+  </div>
+  <p class="slide">scaleX(sx) is a shorthand for scale(sx, 1) or for scale3d(sx, 1, 1).</p>
+  <p class="slide">scaleY(sy) is a shorthand for scale(1, sy) or for scale3d(1, sy, 1).</p>
+  <p class="slide">scaleZ(sz) is a shorthand for scale3d(1, 1, sz).</p>
+</section>
+<section class="slide">
+  <h4>skewX, skewY</h4>
+  <p class="slide">目前不支持：skew3d.</p>
+  <p class="slide">skewX(deg) is a shorthand for skew(deg) or skew(deg, 0)  .</p>
+  <p class="slide">skewY(deg) is a shorthand for skew(0, deg).</p>
+</section>
+<section class="slide">
+  <h3>回顾下之前养眼demo的实现</h3>
+  <h3 class="slide"><a href="http://webdesignerwall.com/trends/47-amazing-css3-animation-demos">逛逛线上的优秀作品</a></h3>
 </section>
 
 <!--Animated CSS3 cube using 3D transforms-->
 <section class="slide opacity-same">
   <h2>硬件加速</h2>
-
 </section>
 
 
@@ -307,7 +783,9 @@
     <li><a href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/"> 3D transforms</a></li>
     <li><a href="http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/">matrix-矩阵</a></li>
     http://www.webkit.org/blog-files/3d-transforms/perspective-by-example.html
-
+    http://dev.opera.com/articles/view/understanding-the-css-transforms-matrix/
+    http://www.guokr.com/post/300903/ 线性代数回顾
+    http://v.163.com/special/opencourse/daishu.html   麻省理工公开课：线性代数
   </ul>
 </section>
 <section class="slide opacity-same">
