@@ -1,0 +1,235 @@
+// Core variables and mixins
+@import "prefixer.less";
+
+/* ==========================================================================
+   my custom styles
+   ========================================================================== */
+.body-wood{
+  background: url(../img/wood.jpg) repeat;
+  width: 100%;
+  height: 100px;
+}
+
+// ppt global
+body{ font-family: Tahoma,Arial,"\5b8b\4f53",sans-serif; }
+
+
+// unGalleryContainer
+div#unGalleryContainer{
+  position: relative;
+  width:960px;
+  margin:0 auto;
+}
+
+.unGalleryContainer .title {
+  position: absolute;
+  padding: 15px 40px;
+  font-size: 2em;
+  background: white;
+  .box-shadow(0 3px 6px rgba(0,0,0,.25));
+  .text-shadow(5px 5px 5px #ccc);
+  color: #666;
+  left: 180px;
+  top: 100px;
+  z-index: 2;
+}
+
+.unGalleryContainer .pic {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  background: white;
+  .transition(all 0.5s ease-in);
+  .box-shadow(0 3px 6px rgba(0,0,0,.25));
+  position: absolute;
+  z-index: 1;
+}
+
+.unGalleryContainer .pic h3{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width:100%;
+  height:100%;
+  margin: 0px;
+  padding: 0px;
+  background: #000;
+  color: #fff;
+  vertical-align: middle;
+  opacity: 0.8;
+  font-size: 2em;
+  .box-shadow(0 3px 6px rgba(0,0,0,.25));
+  .text-shadow(5px 5px 5px #ccc);
+  line-height: 100px;
+  .transform(scale(0));
+  .transition(1s);
+}
+
+.unGalleryContainer .pic img{
+  display: block;
+  border: 0;
+  max-width: 300px;
+}
+
+.unGalleryContainer .pic:hover, .unGalleryContainer .pic:focus, .unGalleryContainer .pic:active {
+  border-color: #9a9a9a;
+  .transform( rotate(0deg) scale(1.5));
+  z-index: 2;
+}
+
+.unGalleryContainer .pic:hover h3{
+  .transform(scale(1));
+}
+.unGalleryContainer .transform0{
+  .transform(rotate(20deg));
+}
+.unGalleryContainer .transform1{
+  .transform(rotate(16deg));
+}
+.unGalleryContainer .transform2{
+  .transform(rotate(12deg));
+}
+.unGalleryContainer .transform3{
+  .transform(rotate(8deg));
+}
+.unGalleryContainer .transform4{
+  .transform(rotate(4deg));
+}
+.unGalleryContainer .transform5{
+  .transform(rotate(-20deg));
+}
+.unGalleryContainer .transform6{
+  .transform(rotate(-16deg));
+}
+.unGalleryContainer .transform7{
+  .transform(rotate(-12deg));
+}
+.unGalleryContainer .transform8{
+  .transform(rotate(-8deg));
+}
+.unGalleryContainer .transform9{
+  .transform(rotate(-4deg));
+}
+
+
+//galleryContainer
+.galleryContainer{
+  width:100%;
+}
+.galleryContainer .item{
+  background: white;
+  display: inline-block;
+  width: 140px;
+  float: left;
+  margin: 0 0 27px 30px;
+  padding: 10px;
+  text-align: center;
+  font-family: "Marker Felt", sans-serif;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  cursor: pointer;
+  .transition(0.5s);
+  .transform( rotate(-8deg) );
+  .box-shadow(0 3px 6px rgba(0,0,0,.25));
+}
+
+
+.galleryContainer .item:after { content: attr(title); display: none; }
+
+.galleryContainer .item:nth-child(even){
+  .transform( rotate(8deg) );
+}
+
+.galleryContainer .item:nth-child(3n){
+  position: relative;
+  top: -5px;
+  .transform(none);
+}
+
+.galleryContainer .item:nth-child(5n){
+  position: relative;
+  right: 5px;
+  .transform( rotate(8deg) );
+}
+
+.galleryContainer .item:nth-child(8n){
+  position: relative;
+  right: 5px;
+  top: 8px;
+}
+
+.galleryContainer .item:nth-child(11n){
+  position: relative;
+  left: -5px;
+  top: 3px;
+}
+
+div.galleryContainer .item:hover{
+  z-index: 1;
+  .transform( rotate(0deg) scale(1.2) );
+  .box-shadow(2px 3px 6px rgba(0,0,0,.5));
+  text-decoration: none;
+}
+
+div.galleryContainer .item.active {
+  width: 500px !important;
+  left:50% !important;
+  top:0px !important;
+  margin:0px 0 0 -250px;
+  opacity: 1;
+  z-index: 100;
+  outline: 0;
+  -webkit-box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+  -o-box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.galleryContainer .item.active:after{
+  display: block;
+
+}
+
+div.galleryContainer .item img.close {
+  display: block;
+  width:auto;
+  position: absolute;
+  left: -9999px;
+  top: 64px;
+  z-index: 500;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  -webkit-transition-delay: 0.8s;
+  -moz-transition-delay: 0.8s;
+  -o-transition-delay: 0.8s;
+  transition-delay: 0.8s;
+}
+
+div.galleryContainer .item.active img.close {
+  right:-28px;
+  left:auto;
+  top:-28px;
+  opacity: 1;
+  z-index: 500;
+  cursor: pointer;
+}
+
+div.galleryContainer .item img {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+}
